@@ -14,7 +14,9 @@ docseed é uma CLI distribuída via npm, mantida por longo prazo, com um contrat
 
 ## Decisão
 
-Usar **TypeScript**, compilado via `tsup` para CJS + ESM.
+Usar **TypeScript** na versão **6.x** (última geração JS-based; o 7.0, port nativo em Go, está no horizonte), compilado via `tsdown` para CJS + ESM (ver ADR [0008](0008-tsdown-bundler.md)).
+
+`tsconfig` segue os defaults do TS 6 — `strict: true`, `module: "esnext"` — e usa `moduleResolution: "bundler"` (o antigo `node10` foi deprecado).
 
 ## Consequências
 
@@ -26,5 +28,5 @@ Usar **TypeScript**, compilado via `tsup` para CJS + ESM.
 
 **Negativas:**
 
-- Build step obrigatório (`tsup` já está na stack, custo baixo).
+- Build step obrigatório (`tsdown` já está na stack, custo baixo).
 - Contribuidores precisam saber TypeScript.
