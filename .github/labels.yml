@@ -1,0 +1,53 @@
+# Esquema de labels do docseed.
+# Aplicar com `gh label create` ou uma GitHub Action de label-sync.
+
+# --- Tipo ---
+- name: epic
+  color: "6f42c1"
+  description: Conjunto grande de trabalho, agrupa várias tasks
+- name: task
+  color: "0e8a16"
+  description: Unidade acionável de trabalho
+- name: bug
+  color: "d73a4a"
+  description: Algo não funciona
+- name: enhancement
+  color: "a2eeef"
+  description: Nova feature ou melhoria
+- name: documentation
+  color: "0075ca"
+  description: Documentação
+- name: chore
+  color: "fef2c0"
+  description: Manutenção, tooling, sem mudança de produto
+
+# --- Área ---
+- name: "area:cli"
+  color: "1d76db"
+  description: Parsing, comandos, flags
+- name: "area:engine"
+  color: "1d76db"
+  description: Loader, render, conflito, writer
+- name: "area:templates"
+  color: "1d76db"
+  description: Conteúdo dos templates .hbs
+- name: "area:presets"
+  color: "1d76db"
+  description: Definição e schema de presets
+- name: "area:tests"
+  color: "1d76db"
+  description: Suíte de testes
+- name: "area:infra"
+  color: "1d76db"
+  description: Build, CI, release, tooling
+
+# --- Meta ---
+- name: blocked
+  color: "b60205"
+  description: Bloqueado por outra issue ou dependência externa
+- name: needs-triage
+  color: "ededed"
+  description: Aguardando avaliação inicial
+- name: good first issue
+  color: "7057ff"
+  description: Bom para quem está começando
