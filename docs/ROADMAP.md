@@ -15,7 +15,7 @@ O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger vá
 
 ## Fase 1 — MVP (~v0.1.x)
 
-- Estrutura base do projeto (TS + tsup + ESLint + pnpm)
+- Estrutura base do projeto (TS 6 + tsdown + Biome + pnpm)
 - Comando `init` com wizard interativo (6-7 perguntas)
 - 2 presets funcionando: `portfolio` e `mvp`
 - 6 templates Markdown básicos com variáveis (README, PRD, ARCHITECTURE, ROADMAP, TASKS, GOALS)
