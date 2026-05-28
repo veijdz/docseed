@@ -1,0 +1,55 @@
+name: Epic
+description: Conjunto grande de trabalho que agrupa várias tasks
+title: "[Epic]: "
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Um épico agrupa tarefas relacionadas em torno de um objetivo. Quebre-o em sub-issues (tasks) e linke-as na seção correspondente.
+  - type: textarea
+    id: goal
+    attributes:
+      label: Objetivo
+      description: O que este épico entrega e por quê.
+      placeholder: Ex. Implementar o engine de render de templates (loader, renderer, conflito, writer).
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Escopo
+      description: O que está dentro e o que está fora deste épico.
+    validations:
+      required: false
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Sub-issues (tasks)
+      description: Task list das sub-issues. Linke conforme forem criadas.
+      value: |
+        - [ ] #
+    validations:
+      required: false
+  - type: textarea
+    id: done
+    attributes:
+      label: Critério de conclusão
+      description: Como saber que o épico está completo.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      description: Área principal afetada (a label correspondente será aplicada na triagem).
+      options:
+        - cli
+        - engine
+        - templates
+        - presets
+        - tests
+        - infra
+        - docs
+    validations:
+      required: true

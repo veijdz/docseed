@@ -1,0 +1,43 @@
+name: Task
+description: Unidade acionável de trabalho, normalmente parte de um épico
+title: "[Task]: "
+labels: ["task"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: O que fazer
+      description: Descrição clara e acionável.
+    validations:
+      required: true
+  - type: input
+    id: epic
+    attributes:
+      label: Épico
+      description: Número do épico pai, se houver.
+      placeholder: "#"
+    validations:
+      required: false
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: Critérios verificáveis de conclusão.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - cli
+        - engine
+        - templates
+        - presets
+        - tests
+        - infra
+        - docs
+    validations:
+      required: true

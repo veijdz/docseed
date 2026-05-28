@@ -1,0 +1,41 @@
+name: Bug report
+description: Algo não funciona como esperado
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: O que aconteceu
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Passos para reproduzir
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versão do docseed
+      placeholder: "ex. 0.1.0-alpha"
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Ambiente
+      placeholder: "ex. Node 24, macOS 15, pnpm 9"
+    validations:
+      required: false
