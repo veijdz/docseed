@@ -85,3 +85,17 @@ Fase 3: opcionalmente adiciona `docseed.config.mjs` para custom presets, vars ad
 ### Distribuição
 
 npm registry como canal único. `pnpm dlx` e `npx` resolvem do mesmo lugar. Binários standalone (pkg/sea/bun) ficam para Fase 4 se demanda surgir.
+
+## Decisões registradas (ADRs)
+
+As decisões acima estão registradas individualmente como [ADRs](./adr/) no formato MADR-lite. Índice completo em [`docs/adr/`](./adr/README.md).
+
+| Decisão                                | ADR                                                           |
+| -------------------------------------- | ------------------------------------------------------------- |
+| TypeScript como linguagem              | [0001](./adr/0001-typescript.md)                              |
+| CLI stack (commander + @clack/prompts) | [0002](./adr/0002-cli-stack-commander-clack.md)               |
+| Handlebars como template engine        | [0003](./adr/0003-handlebars-template-engine.md)              |
+| pnpm como package manager              | [0004](./adr/0004-pnpm-package-manager.md)                    |
+| Estratégia strict de conflito          | [0005](./adr/0005-strict-conflict-strategy.md)                |
+| Override filesystem-first              | [0006](./adr/0006-filesystem-override-no-config.md)           |
+| Presets JSON + templates separados     | [0007](./adr/0007-declarative-presets-separated-templates.md) |
