@@ -46,3 +46,7 @@ Um preset é um JSON declarativo em `src/presets/` mais templates `.hbs` em `tem
 ## Labels
 
 O esquema de labels está em [`.github/labels.yml`](.github/labels.yml): tipo (`epic`, `task`, `bug`, ...), área (`area:*`) e meta (`blocked`, `needs-triage`).
+
+## Código de conduta
+
+Ao participar deste projeto, você concorda em seguir o [Código de Conduta](CODE_OF_CONDUCT.md).
