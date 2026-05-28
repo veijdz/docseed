@@ -3,11 +3,12 @@
 ## Stack
 
 - **Runtime:** Node.js 24+
-- **Linguagem:** TypeScript
+- **Linguagem:** TypeScript 6 (última geração JS-based; 7.0 Go-native no horizonte)
 - **Package manager:** pnpm (campo `packageManager` no `package.json`)
 - **CLI:** `commander` (parsing de args) + `@clack/prompts` (UX do wizard)
 - **Templates:** Handlebars
-- **Bundle:** `tsup`
+- **Bundle:** `tsdown` (Rolldown)
+- **Lint/Format:** Biome
 - **Distribuição:** npm registry, executável via `pnpm dlx docseed` (primário) ou `npx docseed`
 
 ## Estrutura de pastas
@@ -99,3 +100,5 @@ As decisões acima estão registradas individualmente como [ADRs](./adr/) no for
 | Estratégia strict de conflito          | [0005](./adr/0005-strict-conflict-strategy.md)                |
 | Override filesystem-first              | [0006](./adr/0006-filesystem-override-no-config.md)           |
 | Presets JSON + templates separados     | [0007](./adr/0007-declarative-presets-separated-templates.md) |
+| tsdown como bundler                    | [0008](./adr/0008-tsdown-bundler.md)                          |
+| Biome para lint e format               | [0009](./adr/0009-biome-lint-format.md)                       |
