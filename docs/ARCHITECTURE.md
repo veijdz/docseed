@@ -16,7 +16,7 @@
 ```
 docseed/
 ├── src/
-│   ├── commands/        # init (MVP), add+sync (Fase 2)
+│   ├── commands/        # init + add adr (MVP); add completo + sync (Fase 2)
 │   ├── presets/         # configs JSON declarativas de cada preset
 │   ├── engine/          # render de templates, resolução de override
 │   └── utils/
@@ -42,6 +42,8 @@ Ficam em `templates/`, podem evoluir sem mexer no engine. Facilita também custo
 | `mvp`       | README, GOALS, TASKS + PRD, ARCHITECTURE, ROADMAP (6)   |
 
 Templates compartilhados em `templates/shared/`; os específicos de `mvp` em `templates/mvp/`. O `README` varia entre presets via conditionals.
+
+Quando o projeto é open source, também é gerado um `LICENSE` a partir da `license` escolhida (ver ADR [0011](./adr/0011-generate-license-file.md)) — é condicional, não entra na contagem de docs do preset. Os templates são gerados em **pt-BR** no MVP (ver ADR [0010](./adr/0010-template-language-pt-br.md)).
 
 ### Presets como JSON declarativo
 
@@ -110,3 +112,5 @@ As decisões acima estão registradas individualmente como [ADRs](./adr/) no for
 | Presets JSON + templates separados     | [0007](./adr/0007-declarative-presets-separated-templates.md) |
 | tsdown como bundler                    | [0008](./adr/0008-tsdown-bundler.md)                          |
 | Biome para lint e format               | [0009](./adr/0009-biome-lint-format.md)                       |
+| Idioma dos templates (pt-BR no MVP)    | [0010](./adr/0010-template-language-pt-br.md)                 |
+| Geração de arquivo LICENSE             | [0011](./adr/0011-generate-license-file.md)                   |
