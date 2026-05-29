@@ -31,8 +31,10 @@ Mercado existente:
 ## Escopo MVP (v0.1)
 
 - Comando `init` com wizard interativo (6-7 perguntas)
+- Comando `add adr` — adiciona o próximo ADR sequencial a um projeto existente (uso recorrente, cria hábito de voltar à ferramenta)
 - 2 presets funcionando: `minimal`, `mvp`
-- Templates Markdown editáveis localmente
+- Templates Markdown editáveis localmente, gerados em **pt-BR** (ver ADR 0010)
+- Geração de arquivo `LICENSE` quando o projeto é open source, a partir da `license` escolhida (ver ADR 0011)
 - Override de templates por filesystem (`.docseed/templates/<arquivo>.hbs`), sem config file
 - Variáveis substituídas no render: vindas do wizard (projectName, author, shortDescription, preset, isOpenSource, projectType e license — esta só se open source) mais as derivadas no render (date, year)
 - Conflito de `docs/` existente: estratégia strict (abort + flags `--force` / `--merge` / `--dry-run`)
@@ -40,13 +42,13 @@ Mercado existente:
 
 ## Não-escopo (MVP)
 
-- Comandos `add` e `sync` (Fase 2)
+- Comando `add` completo (feature, bug spec) e `sync` (Fase 2) — só `add adr` entra no MVP
 - Presets `saas` e `enterprise` (Fase 2)
 - Templates customizáveis pelo user via config file (Fase 3, formato pré-decidido: `docseed.config.mjs`)
 - Integração com GitHub/Linear/Jira (Fase 4)
 - Geração assistida por AI (Fase 4)
 - Binários standalone (Fase 4)
-- Internacionalização
+- Internacionalização (templates em inglês) — fase futura planejada, ver ADR 0010
 - GUI ou interface web
 
 ## Métrica de sucesso
