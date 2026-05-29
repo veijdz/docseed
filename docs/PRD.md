@@ -34,7 +34,7 @@ Mercado existente:
 - 2 presets funcionando: `minimal`, `mvp`
 - Templates Markdown editáveis localmente
 - Override de templates por filesystem (`.docseed/templates/<arquivo>.hbs`), sem config file
-- Variáveis substituídas no render (projectName, author, shortDescription, preset, isOpenSource, projectType, license, date, year)
+- Variáveis substituídas no render: vindas do wizard (projectName, author, shortDescription, preset, isOpenSource, projectType e license — esta só se open source) mais as derivadas no render (date, year)
 - Conflito de `docs/` existente: estratégia strict (abort + flags `--force` / `--merge` / `--dry-run`)
 - Modo não-interativo via `--yes` + flags
 
