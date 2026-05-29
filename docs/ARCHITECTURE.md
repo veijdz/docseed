@@ -21,8 +21,7 @@ docseed/
 │   ├── engine/          # render de templates, resolução de override
 │   └── utils/
 ├── templates/           # arquivos .hbs (fora do código)
-│   ├── shared/          # docs que todo preset usa
-│   ├── portfolio/
+│   ├── shared/          # docs que todo preset usa (minimal = só estes)
 │   ├── mvp/
 │   ├── saas/            # Fase 2
 │   └── enterprise/      # Fase 2
@@ -39,7 +38,7 @@ Ficam em `templates/`, podem evoluir sem mexer no engine. Facilita também custo
 
 | Preset      | Documentos                                              |
 | ----------- | ------------------------------------------------------- |
-| `portfolio` | README, GOALS, TASKS (3 — todos de `templates/shared/`) |
+| `minimal`   | README, GOALS, TASKS (3 — todos de `templates/shared/`) |
 | `mvp`       | README, GOALS, TASKS + PRD, ARCHITECTURE, ROADMAP (6)   |
 
 Templates compartilhados em `templates/shared/`; os específicos de `mvp` em `templates/mvp/`. O `README` varia entre presets via conditionals.

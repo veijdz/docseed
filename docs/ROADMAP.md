@@ -17,7 +17,7 @@ O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger vá
 
 - Estrutura base do projeto (TS 6 + tsdown + Biome + pnpm)
 - Comando `init` com wizard interativo (6-7 perguntas)
-- 2 presets funcionando: `portfolio` e `mvp`
+- 2 presets funcionando: `minimal` e `mvp`
 - 6 templates Markdown básicos com variáveis (README, PRD, ARCHITECTURE, ROADMAP, TASKS, GOALS)
 - Override de templates por filesystem (`.docseed/templates/`)
 - Modo não-interativo via `--yes` + flags
@@ -48,7 +48,7 @@ O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger vá
 **Critérios para 1.0:**
 
 - [ ] Comando `init` estável (flags e comportamento congelados)
-- [ ] Presets `portfolio`, `mvp` e `saas` sólidos e validados em uso real; `enterprise` disponível
+- [ ] Presets `minimal`, `mvp` e `saas` sólidos e validados em uso real; `enterprise` disponível
 - [ ] Contrato de preset (schema JSON) estável
 - [ ] Formato de override (`.docseed/templates/` + `docseed.config.mjs`) settled
 - [ ] Cobertura de testes adequada (engine + snapshot + e2e)

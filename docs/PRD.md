@@ -31,7 +31,7 @@ Mercado existente:
 ## Escopo MVP (v0.1)
 
 - Comando `init` com wizard interativo (6-7 perguntas)
-- 2 presets funcionando: `portfolio`, `mvp`
+- 2 presets funcionando: `minimal`, `mvp`
 - Templates Markdown editáveis localmente
 - Override de templates por filesystem (`.docseed/templates/<arquivo>.hbs`), sem config file
 - Variáveis substituídas no render (projectName, author, shortDescription, preset, isOpenSource, projectType, license, date, year)

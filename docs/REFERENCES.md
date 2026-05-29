@@ -242,15 +242,16 @@ Modelos de tomada de decisão e responsabilidade. Úteis em projetos com muitos 
 
 ## Mapeamento por Preset do docseed
 
-| Doc                         | `portfolio` | `mvp`         | `saas`              | `enterprise`    |
+| Doc                         | `minimal`   | `mvp`         | `saas`              | `enterprise`    |
 | --------------------------- | ----------- | ------------- | ------------------- | --------------- |
 | README (Standard Readme)    | ✅ leve     | ✅            | ✅                  | ✅ completo     |
 | PRD (Shape Up pitch)        | —           | ✅            | ✅                  | ✅ + PRD formal |
 | ARCHITECTURE (arc42 subset) | —           | ✅ leve       | ✅ médio            | ✅ completo     |
-| C4 diagrams                 | —           | Context       | Context + Container | Todos os níveis |
+| C4 diagrams                 | —           | —             | Context + Container | Todos os níveis |
 | ROADMAP (Now/Next/Later)    | —           | ✅            | ✅                  | ✅ + OKRs       |
 | TASKS                       | ✅          | ✅ fase atual | ✅ fase atual       | ✅              |
-| ADRs                        | —           | ✅ pasta      | ✅                  | ✅              |
+| GOALS                       | ✅          | ✅            | ✅                  | ✅              |
+| ADRs                        | —           | linkados      | ✅ pasta            | ✅ pasta        |
 | Diátaxis docs/              | —           | —             | ✅                  | ✅              |
 | RFCs                        | —           | —             | opcional            | ✅              |
 | Risk Register               | —           | —             | —                   | ✅              |

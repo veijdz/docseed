@@ -27,12 +27,12 @@ docseed init --merge               # só cria arquivos que ainda não existem
 
 ## Presets disponíveis
 
-- `portfolio` — landing, portfólio pessoal (3 docs)
+- `minimal` — projeto simples, doc essencial (3 docs)
 - `mvp` — produto pequeno, validação (6 docs)
 - `saas` — produto sério, múltiplos stakeholders (10+ docs)
 - `enterprise` — projetos grandes, compliance (15+ docs)
 
-> No MVP (v0.1) só `portfolio` e `mvp` estão implementados. `saas` e `enterprise` entram na Fase 2.
+> No MVP (v0.1) só `minimal` e `mvp` estão implementados. `saas` e `enterprise` entram na Fase 2.
 
 ## Status
 
