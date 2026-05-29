@@ -23,6 +23,8 @@ docseed init --preset mvp --yes    # usa defaults sem perguntar
 docseed init --dry-run             # mostra o que seria gerado, não escreve
 docseed init --force               # sobrescreve arquivos existentes
 docseed init --merge               # só cria arquivos que ainda não existem
+
+docseed add adr "título da decisão"   # adiciona o próximo ADR a um projeto existente
 ```
 
 ## Presets
@@ -43,6 +45,8 @@ minimal → README · GOALS · TASKS
 mvp     → README · GOALS · TASKS · PRD · ARCHITECTURE · ROADMAP
 ```
 
+Os documentos são gerados em **português (pt-BR)**. Se o projeto for open source, um arquivo `LICENSE` também é criado a partir da licença escolhida.
+
 ## Customizando templates
 
 Para usar um template próprio no lugar do template do preset, crie o arquivo correspondente em `.docseed/templates/<nome>.hbs` na raiz do projeto. O `docseed` procura esse arquivo antes de cair para o template padrão — sem configuração necessária.
@@ -57,6 +61,7 @@ $EDITOR .docseed/templates/README.hbs   # sobrescreve só o README, mantém o re
 - [Visão geral dos docs](docs/) — PRD, arquitetura, roadmap e referências
 - [Decisões arquiteturais (ADRs)](docs/adr/)
 - [Como contribuir](CONTRIBUTING.md)
+- [Política de segurança](SECURITY.md)
 
 ## Status
 
