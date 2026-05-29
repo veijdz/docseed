@@ -13,7 +13,11 @@ Decisões arquiteturais do docseed, em formato MADR-lite (baseado em [MADR](http
 | [0007](0007-declarative-presets-separated-templates.md) | Presets JSON declarativo + templates separados | Accepted |
 | [0008](0008-tsdown-bundler.md)                          | tsdown como bundler                            | Accepted |
 | [0009](0009-biome-lint-format.md)                       | Biome para lint e format                       | Accepted |
+| [0010](0010-template-language-pt-br.md)                 | Idioma dos templates: pt-BR no MVP             | Accepted |
+| [0011](0011-generate-license-file.md)                   | Geração de arquivo LICENSE                     | Accepted |
 
 **Status possíveis:** Proposed, Accepted, Deprecated, Superseded.
 
 Ao adicionar um ADR novo: copie a estrutura de um existente, use o próximo número sequencial e adicione a linha na tabela acima.
+
+A seção `## Referências` (links externos) é opcional — inclua quando a decisão se apoiar em fontes que valham registro.

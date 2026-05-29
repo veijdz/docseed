@@ -4,6 +4,8 @@ Obrigado pelo interesse. Este guia cobre setup, fluxo de trabalho e convenções
 
 ## Setup de desenvolvimento
 
+> **Nota:** o código-fonte ainda está em construção (Fase 1 — ver [ROADMAP](docs/ROADMAP.md)). Os comandos abaixo descrevem o setup-alvo; enquanto a estrutura base não existir, eles ainda não rodam num clone.
+
 Pré-requisitos: Node.js 24+ e pnpm (via corepack).
 
 ```bash

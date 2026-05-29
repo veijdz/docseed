@@ -29,4 +29,4 @@ Usar **commander** para parsing de argumentos e **@clack/prompts** para a UX do 
 **Negativas:**
 
 - Duas dependências em vez de um framework único.
-- @clack é relativamente novo — risco de churn de API até estabilizar.
+- @clack/prompts atingiu o 1.x com API estável; resta a ressalva menor de comunidade ainda menor que a do inquirer.

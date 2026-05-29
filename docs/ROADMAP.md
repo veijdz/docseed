@@ -13,12 +13,20 @@ O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger vá
 
 ---
 
+## Objetivo e sustentabilidade
+
+O docseed serve a três propósitos ao mesmo tempo: **portfólio** (demonstrar engenharia e curadoria), **dogfooding** (ferramenta de uso próprio recorrente) e **base de comunidade** (adoção externa). O roadmap abaixo é amplo por isso, mas é guiado por um **circuit breaker** no espírito do Shape Up: o avanço de uma fase para a próxima é reavaliado conforme tração real (uso, feedback), não por inércia. Se o MVP não mostrar adoção, congela-se num MVP polido em vez de inflar o escopo.
+
+---
+
 ## Fase 1 — MVP (~v0.1.x)
 
 - Estrutura base do projeto (TS 6 + tsdown + Biome + pnpm)
 - Comando `init` com wizard interativo (6-7 perguntas)
+- Comando `add adr` — adiciona o próximo ADR a um projeto existente (uso recorrente)
 - 2 presets funcionando: `minimal` e `mvp`
-- 6 templates Markdown básicos com variáveis (README, PRD, ARCHITECTURE, ROADMAP, TASKS, GOALS)
+- 6 templates Markdown básicos com variáveis (README, PRD, ARCHITECTURE, ROADMAP, TASKS, GOALS), gerados em pt-BR (ADR 0010)
+- Geração de arquivo `LICENSE` para projetos open source (ADR 0011)
 - Override de templates por filesystem (`.docseed/templates/`)
 - Modo não-interativo via `--yes` + flags
 - Estratégia strict de conflito: `--force` / `--merge` / `--dry-run`
@@ -30,7 +38,7 @@ O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger vá
 ## Fase 2 — Expansão (~v0.2.x)
 
 - Presets `saas` e `enterprise`
-- Comando `add` (adicionar ADR, feature, bug spec incremental)
+- Comando `add` completo (feature, bug spec incremental) — `add adr` já entrou no MVP
 - Comando `sync` (valida estrutura existente, aponta gaps por preset)
 
 ## Fase 3 — Customização (~v0.3.x)
