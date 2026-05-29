@@ -55,7 +55,7 @@ Tudo determinístico, roda offline, sem dependência externa.
 
 Convenção universal, fácil de versionar.
 
-### Wizard mínimo (dimensões B)
+### Wizard mínimo
 
 Wizard pergunta: `projectName`, `author`, `shortDescription`, `preset`, `isOpenSource`, `projectType`, `license` (só se open source). Total: 6-7 perguntas. Modo `--yes` usa defaults sensatos para todas.
 
