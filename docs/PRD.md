@@ -30,9 +30,10 @@ Mercado existente:
 
 ## Escopo MVP (v0.1)
 
-- Comando `init` com wizard interativo (5-7 perguntas)
+- Comando `init` com wizard interativo (6-7 perguntas)
 - 2 presets funcionando: `portfolio`, `mvp`
 - Templates Markdown editáveis localmente
+- Override de templates por filesystem (`.docseed/templates/<arquivo>.hbs`), sem config file
 - Variáveis substituídas no render (projectName, author, shortDescription, preset, isOpenSource, projectType, license, date, year)
 - Conflito de `docs/` existente: estratégia strict (abort + flags `--force` / `--merge` / `--dry-run`)
 - Modo não-interativo via `--yes` + flags
@@ -42,7 +43,6 @@ Mercado existente:
 - Comandos `add` e `sync` (Fase 2)
 - Presets `saas` e `enterprise` (Fase 2)
 - Templates customizáveis pelo user via config file (Fase 3, formato pré-decidido: `docseed.config.mjs`)
-- Override por filesystem `.docseed/templates/` (Fase 2 ou 3)
 - Integração com GitHub/Linear/Jira (Fase 4)
 - Geração assistida por AI (Fase 4)
 - Binários standalone (Fase 4)

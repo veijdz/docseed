@@ -19,6 +19,7 @@ O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger vá
 - Comando `init` com wizard interativo (6-7 perguntas)
 - 2 presets funcionando: `portfolio` e `mvp`
 - 6 templates Markdown básicos com variáveis (README, PRD, ARCHITECTURE, ROADMAP, TASKS, GOALS)
+- Override de templates por filesystem (`.docseed/templates/`)
 - Modo não-interativo via `--yes` + flags
 - Estratégia strict de conflito: `--force` / `--merge` / `--dry-run`
 - Suite de testes (engine + snapshot por preset)
@@ -31,7 +32,6 @@ O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger vá
 - Presets `saas` e `enterprise`
 - Comando `add` (adicionar ADR, feature, bug spec incremental)
 - Comando `sync` (valida estrutura existente, aponta gaps por preset)
-- Override por filesystem `.docseed/templates/`
 
 ## Fase 3 — Customização (~v0.3.x)
 

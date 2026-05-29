@@ -35,6 +35,15 @@ docseed/
 
 Ficam em `templates/`, podem evoluir sem mexer no engine. Facilita também customização futura via filesystem override.
 
+### Documentos por preset (MVP)
+
+| Preset      | Documentos                                              |
+| ----------- | ------------------------------------------------------- |
+| `portfolio` | README, GOALS, TASKS (3 — todos de `templates/shared/`) |
+| `mvp`       | README, GOALS, TASKS + PRD, ARCHITECTURE, ROADMAP (6)   |
+
+Templates compartilhados em `templates/shared/`; os específicos de `mvp` em `templates/mvp/`. O `README` varia entre presets via conditionals.
+
 ### Presets como JSON declarativo
 
 Cada preset define quais docs gerar e quais perguntas fazer no wizard. Adicionar preset novo = adicionar JSON + templates.
