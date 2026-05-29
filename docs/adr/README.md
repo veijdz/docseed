@@ -17,3 +17,5 @@ Decisões arquiteturais do docseed, em formato MADR-lite (baseado em [MADR](http
 **Status possíveis:** Proposed, Accepted, Deprecated, Superseded.
 
 Ao adicionar um ADR novo: copie a estrutura de um existente, use o próximo número sequencial e adicione a linha na tabela acima.
+
+A seção `## Referências` (links externos) é opcional — inclua quando a decisão se apoiar em fontes que valham registro.

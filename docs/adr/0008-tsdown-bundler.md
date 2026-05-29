@@ -29,8 +29,8 @@ Usar **tsdown**, configurado via `tsdown.config.ts`.
 
 **Negativas:**
 
-- Projeto relativamente novo — a API pode mudar; comunidade menor que a do tsup.
-- Rolldown ainda está amadurecendo.
+- Projeto ainda pré-1.0 (v0.22.x em maio/2026) — breaking changes são esperados na faixa `0.x`; comunidade menor que a do tsup.
+- Rolldown ainda está amadurecendo (o core já chegou ao 1.0, mas o tsdown que o embrulha não).
 
 ## Referências
 
