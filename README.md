@@ -25,15 +25,43 @@ docseed init --force               # sobrescreve arquivos existentes
 docseed init --merge               # só cria arquivos que ainda não existem
 ```
 
-## Presets disponíveis
+## Presets
 
 - `minimal` — projeto simples, doc essencial (3 docs)
 - `mvp` — produto pequeno, validação (6 docs)
-- `saas` — produto sério, múltiplos stakeholders (10+ docs)
-- `enterprise` — projetos grandes, compliance (15+ docs)
+- `saas` — produto sério, múltiplos stakeholders _(em breve — Fase 2)_
+- `enterprise` — projetos grandes, compliance _(em breve — Fase 2)_
 
-> No MVP (v0.1) só `minimal` e `mvp` estão implementados. `saas` e `enterprise` entram na Fase 2.
+> No MVP (v0.1) só `minimal` e `mvp` estão implementados.
+
+## O que é gerado
+
+Cada preset gera um conjunto de documentos prontos para preencher:
+
+```text
+minimal → README · GOALS · TASKS
+mvp     → README · GOALS · TASKS · PRD · ARCHITECTURE · ROADMAP
+```
+
+## Customizando templates
+
+Para usar um template próprio no lugar do template do preset, crie o arquivo correspondente em `.docseed/templates/<nome>.hbs` na raiz do projeto. O `docseed` procura esse arquivo antes de cair para o template padrão — sem configuração necessária.
+
+```bash
+mkdir -p .docseed/templates
+$EDITOR .docseed/templates/README.hbs   # sobrescreve só o README, mantém o resto do preset
+```
+
+## Documentação
+
+- [Visão geral dos docs](docs/) — PRD, arquitetura, roadmap e referências
+- [Decisões arquiteturais (ADRs)](docs/adr/)
+- [Como contribuir](CONTRIBUTING.md)
 
 ## Status
 
 Em desenvolvimento — alpha.
+
+## Licença
+
+[MIT](LICENSE) © veijdz
