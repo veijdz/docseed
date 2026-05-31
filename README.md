@@ -29,10 +29,10 @@ docseed add adr "título da decisão"   # adiciona o próximo ADR a um projeto e
 
 ## Presets
 
-- `minimal` — projeto simples, doc essencial (3 docs)
-- `mvp` — produto pequeno, validação (6 docs)
-- `saas` — produto sério, múltiplos stakeholders _(em breve — Fase 2)_
-- `enterprise` — projetos grandes, compliance _(em breve — Fase 2)_
+- `minimal`: projeto simples, doc essencial (3 docs)
+- `mvp`: produto pequeno, validação (6 docs)
+- `saas`: produto sério, múltiplos stakeholders _(em breve, Fase 2)_
+- `enterprise`: projetos grandes, compliance _(em breve, Fase 2)_
 
 > No MVP (v0.1) só `minimal` e `mvp` estão implementados.
 
@@ -49,7 +49,7 @@ Os documentos são gerados em **português (pt-BR)**. Se o projeto for open sour
 
 ## Customizando templates
 
-Para usar um template próprio no lugar do template do preset, crie o arquivo correspondente em `.docseed/templates/<nome>.hbs` na raiz do projeto. O `docseed` procura esse arquivo antes de cair para o template padrão — sem configuração necessária.
+Para usar um template próprio no lugar do template do preset, crie o arquivo correspondente em `.docseed/templates/<nome>.hbs` na raiz do projeto. O `docseed` procura esse arquivo antes de cair para o template padrão, sem configuração necessária.
 
 ```bash
 mkdir -p .docseed/templates
@@ -58,14 +58,14 @@ $EDITOR .docseed/templates/README.hbs   # sobrescreve só o README, mantém o re
 
 ## Documentação
 
-- [Visão geral dos docs](docs/) — PRD, arquitetura, roadmap e referências
+- [Visão geral dos docs](docs/): PRD, arquitetura, roadmap e referências
 - [Decisões arquiteturais (ADRs)](docs/adr/)
 - [Como contribuir](CONTRIBUTING.md)
 - [Política de segurança](SECURITY.md)
 
 ## Status
 
-Em desenvolvimento — alpha.
+Em desenvolvimento, alpha.
 
 ## Licença
 

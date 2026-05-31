@@ -1,18 +1,18 @@
-# ADR 0003 — Handlebars como template engine
+# ADR 0003: Handlebars como template engine
 
 - **Status:** Accepted
 - **Data:** 2026-05-28
 
 ## Contexto
 
-Os templates `.hbs` precisam de substituição de variáveis e de conditionals — por exemplo, incluir um bloco apenas quando `isOpenSource`, ou variar conteúdo por `projectType`. A escolha do engine define o teto de expressividade dos templates.
+Os templates `.hbs` precisam de substituição de variáveis e de conditionals, por exemplo, incluir um bloco apenas quando `isOpenSource`, ou variar conteúdo por `projectType`. A escolha do engine define o teto de expressividade dos templates.
 
 ## Opções consideradas
 
-- **Handlebars** — logic-less com helpers; suporta conditionals, loops e partials. Maduro e amplamente usado.
-- **Mustache** — logic-less puro, menor, mas conditionals limitados (dificulta as dimensões do wizard).
-- **Eta / EJS** — permitem JS embutido. Poderoso demais; risco de templates virarem código difícil de manter.
-- **String replace nativo** — zero dependência, mas sem conditionals — a dimensão `isOpenSource` exigiria hacks.
+- **Handlebars**: logic-less com helpers; suporta conditionals, loops e partials. Maduro e amplamente usado.
+- **Mustache**: logic-less puro, menor, mas conditionals limitados (dificulta as dimensões do wizard).
+- **Eta / EJS**: permitem JS embutido. Poderoso demais; risco de templates virarem código difícil de manter.
+- **String replace nativo**: zero dependência, mas sem conditionals, e a dimensão `isOpenSource` exigiria hacks.
 
 ## Decisão
 

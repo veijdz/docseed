@@ -1,6 +1,6 @@
-# Referências & Metodologias — docseed
+# Referências & Metodologias: docseed
 
-Este documento reúne as referências, padrões e metodologias que fundamentam a estrutura de documentação gerada pelo `docseed`. Cada metodologia abaixo explica _por que_ um determinado documento existe em um preset — por exemplo, por que o preset `mvp` inclui um PRD em formato de pitch, ou por que `enterprise` adiciona ADRs e RFCs.
+Este documento reúne as referências, padrões e metodologias que fundamentam a estrutura de documentação gerada pelo `docseed`. Cada metodologia abaixo explica _por que_ um determinado documento existe em um preset, por exemplo, por que o preset `mvp` inclui um PRD em formato de pitch, ou por que `enterprise` adiciona ADRs e RFCs.
 
 **Como usar este documento:**
 
@@ -12,7 +12,7 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 ---
 
-## 1. ADR — Architecture Decision Records
+## 1. ADR: Architecture Decision Records
 
 **Origem:** Michael Nygard, blog post "Documenting Architecture Decisions" (2011).
 
@@ -22,16 +22,16 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 **Estrutura clássica (Nygard):**
 
-- **Title** — descritivo, geralmente no nome do arquivo
-- **Status** — proposed, accepted, rejected, deprecated, superseded
-- **Context** — motivação ou problema que levou à decisão
-- **Decision** — o que será feito
-- **Consequences** — efeitos positivos e negativos
+- **Title**: descritivo, geralmente no nome do arquivo
+- **Status**: proposed, accepted, rejected, deprecated, superseded
+- **Context**: motivação ou problema que levou à decisão
+- **Decision**: o que será feito
+- **Consequences**: efeitos positivos e negativos
 
 **Variações:**
 
-- **MADR** (Markdown ADR) — adiciona análise de tradeoffs e opções consideradas
-- **Y-Statement** — formato de uma frase: "In the context of _X_, facing _concern_, we decided for _option_ to achieve _quality_, accepting _downside_"
+- **MADR** (Markdown ADR): adiciona análise de tradeoffs e opções consideradas
+- **Y-Statement**: formato de uma frase: "In the context of _X_, facing _concern_, we decided for _option_ to achieve _quality_, accepting _downside_"
 
 **Links:**
 
@@ -41,7 +41,7 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 ---
 
-## 2. arc42 — Template de Arquitetura
+## 2. arc42: Template de Arquitetura
 
 **Origem:** Dr. Gernot Starke e Dr. Peter Hruschka, 2005. Open source.
 
@@ -62,7 +62,7 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 11. Risks and Technical Debt
 12. Glossary
 
-**Filosofia importante:** Trate como compartimentos de um armário — o armário tem valor mesmo com compartimentos vazios. Não é obrigatório preencher tudo. Adapte ao tamanho do projeto.
+**Filosofia importante:** Trate como compartimentos de um armário, o armário tem valor mesmo com compartimentos vazios. Não é obrigatório preencher tudo. Adapte ao tamanho do projeto.
 
 **Quando usar no docseed:**
 
@@ -78,24 +78,24 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 ---
 
-## 3. C4 Model — Diagramas de Arquitetura
+## 3. C4 Model: Diagramas de Arquitetura
 
-**Origem:** Simon Brown, 2006–2011. Inspirado em UML e no modelo "4+1" de Kruchten.
+**Origem:** Simon Brown, 2006-2011. Inspirado em UML e no modelo "4+1" de Kruchten.
 
 **O quê:** Abordagem hierárquica para diagramar arquitetura em 4 níveis de abstração, do mais amplo ao mais detalhado.
 
 **Os 4 níveis:**
 
-1. **Context** — o sistema no ambiente (usuários, sistemas externos)
-2. **Container** — apps, APIs, bancos, file systems
-3. **Component** — módulos dentro de cada container
-4. **Code** — classes, funções (opcional, raramente mantido)
+1. **Context**: o sistema no ambiente (usuários, sistemas externos)
+2. **Container**: apps, APIs, bancos, file systems
+3. **Component**: módulos dentro de cada container
+4. **Code**: classes, funções (opcional, raramente mantido)
 
 **Diagramas suplementares:** Dynamic View, Deployment View, System Landscape.
 
 **Por que importa:** Mais leve que UML, mais estruturado que diagramas ad-hoc. Padronizou comunicação visual de arquitetura na indústria.
 
-**Complemento natural:** Usado em conjunto com arc42 (preenche a seção 5 — Building Block View).
+**Complemento natural:** Usado em conjunto com arc42 (preenche a seção 5: Building Block View).
 
 **Links:**
 
@@ -104,7 +104,7 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 ---
 
-## 4. Shape Up — Metodologia (Basecamp)
+## 4. Shape Up: Metodologia (Basecamp)
 
 **Origem:** Ryan Singer, livro _Shape Up: Stop Running in Circles and Ship Work that Matters_ (2019). Publicado gratuitamente online pela Basecamp.
 
@@ -112,17 +112,17 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 **Conceitos-chave:**
 
-- **Appetite (não estimate)** — quanto tempo _queremos_ gastar nisso, não quanto _vai_ custar. Fixed time, variable scope.
-- **Shaping** — trabalho de pré-produção: definir problema, esboçar solução, identificar rabbit holes, antes de comprometer o time.
-- **Pitch** — documento final do shaping. Os 5 ingredientes:
-  - **Problem** — definição específica, idealmente uma história concreta
-  - **Appetite** — 2 semanas? 6 semanas?
-  - **Solution** — "fat marker sketches" e breadboards, não wireframes
-  - **Rabbit holes** — riscos identificados e como evitar
-  - **No-gos** — o que explicitamente _não_ será feito
-- **Betting Table** — substitui priorização de backlog. Decide-se em o que apostar a cada ciclo.
-- **Circuit breaker** — se não entrega em 6 semanas, projeto morre por padrão. Sem extensões automáticas.
-- **Hill Chart** — visualização de progresso (subindo a colina = descoberta; descendo = execução).
+- **Appetite (não estimate)**: quanto tempo _queremos_ gastar nisso, não quanto _vai_ custar. Fixed time, variable scope.
+- **Shaping**: trabalho de pré-produção: definir problema, esboçar solução, identificar rabbit holes, antes de comprometer o time.
+- **Pitch**: documento final do shaping. Os 5 ingredientes:
+  - **Problem**: definição específica, idealmente uma história concreta
+  - **Appetite**: 2 semanas? 6 semanas?
+  - **Solution**: "fat marker sketches" e breadboards, não wireframes
+  - **Rabbit holes**: riscos identificados e como evitar
+  - **No-gos**: o que explicitamente _não_ será feito
+- **Betting Table**: substitui priorização de backlog. Decide-se em o que apostar a cada ciclo.
+- **Circuit breaker**: se não entrega em 6 semanas, projeto morre por padrão. Sem extensões automáticas.
+- **Hill Chart**: visualização de progresso (subindo a colina = descoberta; descendo = execução).
 
 **Crítica a backlogs:** Vistos como desperdiçadores de tempo. Centenas de tasks acumuladas que nunca serão feitas geram sensação falsa de atraso e custo de manutenção sem retorno.
 
@@ -138,7 +138,7 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 ---
 
-## 5. Diátaxis — Framework de Documentação
+## 5. Diátaxis: Framework de Documentação
 
 **Origem:** Daniele Procida.
 
@@ -172,7 +172,7 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 ---
 
-## 6. Now / Next / Later — Roadmap
+## 6. Now / Next / Later: Roadmap
 
 **Origem:** Janna Bastow (ProductPlan, Mind the Product).
 
@@ -180,9 +180,9 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 **Estrutura:**
 
-- **Now** — em execução, alta certeza
-- **Next** — próximo, certeza média
-- **Later** — explorando, baixa certeza
+- **Now**: em execução, alta certeza
+- **Next**: próximo, certeza média
+- **Later**: explorando, baixa certeza
 
 **Por que importa:** Roadmaps com datas precisas mentem. Now/Next/Later é honesto sobre o nível de comprometimento e evita o teatro do "Q3 2026: feature X".
 
@@ -224,7 +224,7 @@ Para a tradução dessas metodologias em decisões concretas de stack e arquitet
 
 ### RFC (Request for Comments)
 
-Tradição do IETF, adaptada por empresas como Rust, Squarespace, Oxide. Documento que propõe mudança significativa antes de implementar — discutido publicamente, depois aceito ou rejeitado. Útil em times médios/grandes para mudanças não-triviais que merecem debate registrado.
+Tradição do IETF, adaptada por empresas como Rust, Squarespace, Oxide. Documento que propõe mudança significativa antes de implementar, discutido publicamente, depois aceito ou rejeitado. Útil em times médios/grandes para mudanças não-triviais que merecem debate registrado.
 
 ### PRD tradicional (Marty Cagan, Lenny Rachitsky)
 
@@ -245,19 +245,19 @@ Modelos de tomada de decisão e responsabilidade. Úteis em projetos com muitos 
 | Doc                         | `minimal`   | `mvp`         | `saas`              | `enterprise`    |
 | --------------------------- | ----------- | ------------- | ------------------- | --------------- |
 | README (Standard Readme)    | ✅ leve     | ✅            | ✅                  | ✅ completo     |
-| PRD (Shape Up pitch)        | —           | ✅            | ✅                  | ✅ + PRD formal |
-| ARCHITECTURE (arc42 subset) | —           | ✅ leve       | ✅ médio            | ✅ completo     |
-| C4 diagrams                 | —           | —             | Context + Container | Todos os níveis |
-| ROADMAP (Now/Next/Later)    | —           | ✅            | ✅                  | ✅ + OKRs       |
+| PRD (Shape Up pitch)        | -           | ✅            | ✅                  | ✅ + PRD formal |
+| ARCHITECTURE (arc42 subset) | -           | ✅ leve       | ✅ médio            | ✅ completo     |
+| C4 diagrams                 | -           | -             | Context + Container | Todos os níveis |
+| ROADMAP (Now/Next/Later)    | -           | ✅            | ✅                  | ✅ + OKRs       |
 | TASKS                       | ✅          | ✅ fase atual | ✅ fase atual       | ✅              |
 | GOALS                       | ✅          | ✅            | ✅                  | ✅              |
-| ADRs                        | —           | linkados      | ✅ pasta            | ✅ pasta        |
-| Diátaxis docs/              | —           | —             | ✅                  | ✅              |
-| RFCs                        | —           | —             | opcional            | ✅              |
-| Risk Register               | —           | —             | —                   | ✅              |
-| OKRs                        | —           | —             | —                   | ✅              |
+| ADRs                        | -           | linkados      | ✅ pasta            | ✅ pasta        |
+| Diátaxis docs/              | -           | -             | ✅                  | ✅              |
+| RFCs                        | -           | -             | opcional            | ✅              |
+| Risk Register               | -           | -             | -                   | ✅              |
+| OKRs                        | -           | -             | -                   | ✅              |
 
-> **Sobre "linkados" no preset `mvp`:** significa que o `ARCHITECTURE.md` gerado inclui uma seção _Decisões_ com links para ADRs — o `docseed` **não** cria uma pasta `adr/` nem gera arquivos de ADR no `mvp`. A pasta `adr/` (marcada **✅ pasta**) é exclusiva de `saas`/`enterprise`. Isso mantém a contagem de 6 documentos do preset `mvp`.
+> **Sobre "linkados" no preset `mvp`:** significa que o `ARCHITECTURE.md` gerado inclui uma seção _Decisões_ com links para ADRs, o `docseed` **não** cria uma pasta `adr/` nem gera arquivos de ADR no `mvp`. A pasta `adr/` (marcada **✅ pasta**) é exclusiva de `saas`/`enterprise`. Isso mantém a contagem de 6 documentos do preset `mvp`.
 
 ---
 
@@ -265,8 +265,8 @@ Modelos de tomada de decisão e responsabilidade. Úteis em projetos com muitos 
 
 Ordem sugerida, do mais acionável ao mais teórico:
 
-1. **Shape Up** (livro grátis, ~2-3h) — muda a mentalidade sobre escopo e appetite
-2. **Documenting Architecture Decisions** (Nygard, ~10min) — suficiente para adotar ADRs
-3. **C4 Model** (site, ~1h para o essencial) — diagramas de arquitetura decentes rapidamente
-4. **Diátaxis** (site, ~30min) — clareia a organização de docs voltados a usuário
-5. **arc42** (referência de consulta) — quando precisar de profundidade arquitetural
+1. **Shape Up** (livro grátis, ~2-3h): muda a mentalidade sobre escopo e appetite
+2. **Documenting Architecture Decisions** (Nygard, ~10min): suficiente para adotar ADRs
+3. **C4 Model** (site, ~1h para o essencial): diagramas de arquitetura decentes rapidamente
+4. **Diátaxis** (site, ~30min): clareia a organização de docs voltados a usuário
+5. **arc42** (referência de consulta): quando precisar de profundidade arquitetural

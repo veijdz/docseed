@@ -1,4 +1,4 @@
-# ADR 0010 — Idioma dos templates: pt-BR no MVP
+# ADR 0010: Idioma dos templates: pt-BR no MVP
 
 - **Status:** Accepted
 - **Data:** 2026-05-29
@@ -9,13 +9,13 @@ Os documentos gerados pelo docseed precisam sair num idioma. A documentação do
 
 ## Opções consideradas
 
-- **pt-BR fixo no MVP** — templates em português. Posiciona o docseed como a primeira CLI de scaffold de docs pensada para times que documentam em português — diferencial de nicho menos copiável. Limita o mercado inicial ao público lusófono.
-- **Inglês fixo** — alcance global no npm desde o início, mas exige migrar a documentação pública e dilui o diferencial; compete de frente com qualquer template repo em inglês.
-- **Flag `--lang` desde o MVP** — suporta os dois, mas dobra o custo de manutenção de templates antes de validar a demanda.
+- **pt-BR fixo no MVP**: templates em português. Posiciona o docseed como a primeira CLI de scaffold de docs pensada para times que documentam em português, diferencial de nicho menos copiável. Limita o mercado inicial ao público lusófono.
+- **Inglês fixo**: alcance global no npm desde o início, mas exige migrar a documentação pública e dilui o diferencial; compete de frente com qualquer template repo em inglês.
+- **Flag `--lang` desde o MVP**: suporta os dois, mas dobra o custo de manutenção de templates antes de validar a demanda.
 
 ## Decisão
 
-No MVP, os templates gerados saem **em pt-BR**, fixo. A expansão para inglês (provavelmente via `--lang`, formato a decidir) fica reservada para uma fase futura, depois que a base estiver estável e validada — mesma lógica aditiva do config file (ver ADR [0006](0006-filesystem-override-no-config.md)).
+No MVP, os templates gerados saem **em pt-BR**, fixo. A expansão para inglês (provavelmente via `--lang`, formato a decidir) fica reservada para uma fase futura, depois que a base estiver estável e validada, mesma lógica aditiva do config file (ver ADR [0006](0006-filesystem-override-no-config.md)).
 
 ## Consequências
 

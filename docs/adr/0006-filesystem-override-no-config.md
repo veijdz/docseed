@@ -1,4 +1,4 @@
-# ADR 0006 — Override filesystem-first, sem config file no MVP
+# ADR 0006: Override filesystem-first, sem config file no MVP
 
 - **Status:** Accepted
 - **Data:** 2026-05-28
@@ -9,9 +9,9 @@ Usuários vão querer customizar templates (ex.: um README próprio da empresa).
 
 ## Opções consideradas
 
-- **Filesystem-first** — o engine procura `.docseed/templates/<arquivo>.hbs` no projeto antes de cair para o template do preset. Override por nome de arquivo, zero configuração.
-- **Config-first (`docseed.config.mjs` desde o MVP)** — declara overrides e presets custom num arquivo. Flexível, mas exige escrever código de config já no MVP.
-- **Sem override (fork-only)** — mais simples, mas hostil à customização.
+- **Filesystem-first**: o engine procura `.docseed/templates/<arquivo>.hbs` no projeto antes de cair para o template do preset. Override por nome de arquivo, zero configuração.
+- **Config-first (`docseed.config.mjs` desde o MVP)**: declara overrides e presets custom num arquivo. Flexível, mas exige escrever código de config já no MVP.
+- **Sem override (fork-only)**: mais simples, mas hostil à customização.
 
 ## Decisão
 

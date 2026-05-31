@@ -10,7 +10,7 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e o 
 
 - Documentação inicial: README, PRD, ARCHITECTURE, ROADMAP e REFERENCES.
 - Licença MIT (`LICENSE`).
-- ADRs 0001–0011 registrando as decisões de stack e design (inclui idioma dos templates e geração de `LICENSE`).
+- ADRs 0001-0011 registrando as decisões de stack e design (inclui idioma dos templates e geração de `LICENSE`).
 - Estrutura de contribuição: templates de issue/PR, esquema de labels, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md` e `SECURITY.md`.
 - Este `CHANGELOG.md`, seguindo Keep a Changelog.
 
