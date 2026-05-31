@@ -1,4 +1,4 @@
-# Arquitetura — docseed
+# Arquitetura: docseed
 
 ## Stack
 
@@ -38,12 +38,12 @@ Ficam em `templates/`, podem evoluir sem mexer no engine. Facilita também custo
 
 | Preset      | Documentos                                              |
 | ----------- | ------------------------------------------------------- |
-| `minimal`   | README, GOALS, TASKS (3 — todos de `templates/shared/`) |
+| `minimal`   | README, GOALS, TASKS (3, todos de `templates/shared/`) |
 | `mvp`       | README, GOALS, TASKS + PRD, ARCHITECTURE, ROADMAP (6)   |
 
 Templates compartilhados em `templates/shared/`; os específicos de `mvp` em `templates/mvp/`. O `README` varia entre presets via conditionals.
 
-Quando o projeto é open source, também é gerado um `LICENSE` a partir da `license` escolhida (ver ADR [0011](./adr/0011-generate-license-file.md)) — é condicional, não entra na contagem de docs do preset. Os templates são gerados em **pt-BR** no MVP (ver ADR [0010](./adr/0010-template-language-pt-br.md)).
+Quando o projeto é open source, também é gerado um `LICENSE` a partir da `license` escolhida (ver ADR [0011](./adr/0011-generate-license-file.md)), é condicional, não entra na contagem de docs do preset. Os templates são gerados em **pt-BR** no MVP (ver ADR [0010](./adr/0010-template-language-pt-br.md)).
 
 ### Presets como JSON declarativo
 
@@ -67,9 +67,9 @@ Dimensões adicionais (team size, compliance, has external users) ficam para Fas
 
 Se algum arquivo conflitaria, comando aborta e lista files conflitantes. Flags:
 
-- `--force` — sobrescreve tudo
-- `--merge` — só escreve files que não existem (skip existing)
-- `--dry-run` — preview sem escrever
+- `--force`: sobrescreve tudo
+- `--merge`: só escreve files que não existem (skip existing)
+- `--dry-run`: preview sem escrever
 
 Sem prompt interativo no MVP (CI-friendly, comportamento previsível).
 

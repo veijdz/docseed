@@ -1,4 +1,4 @@
-# Roadmap — docseed
+# Roadmap: docseed
 
 ## Como ler este roadmap
 
@@ -9,7 +9,7 @@ Dois eixos independentes:
 
 O mapeamento fase↔versão abaixo é **aproximado**: uma fase pode abranger várias releases (`0.1.0-alpha`, `0.1.0`, `0.1.1`...).
 
-**Semver pré-1.0:** enquanto em `0.x`, mudanças minor (`0.1` → `0.2`) podem incluir breaking changes — esperado e sinalizado no CHANGELOG. A partir de `1.0.0`, breaking changes exigem major bump (`2.0`).
+**Semver pré-1.0:** enquanto em `0.x`, mudanças minor (`0.1` → `0.2`) podem incluir breaking changes, esperado e sinalizado no CHANGELOG. A partir de `1.0.0`, breaking changes exigem major bump (`2.0`).
 
 ---
 
@@ -19,11 +19,11 @@ O docseed serve a três propósitos ao mesmo tempo: **portfólio** (demonstrar e
 
 ---
 
-## Fase 1 — MVP (~v0.1.x)
+## Fase 1: MVP (~v0.1.x)
 
 - Estrutura base do projeto (TS 6 + tsdown + Biome + pnpm)
 - Comando `init` com wizard interativo (6-7 perguntas)
-- Comando `add adr` — adiciona o próximo ADR a um projeto existente (uso recorrente)
+- Comando `add adr`: adiciona o próximo ADR a um projeto existente (uso recorrente)
 - 2 presets funcionando: `minimal` e `mvp`
 - 6 templates Markdown básicos com variáveis (README, PRD, ARCHITECTURE, ROADMAP, TASKS, GOALS), gerados em pt-BR (ADR 0010)
 - Geração de arquivo `LICENSE` para projetos open source (ADR 0011)
@@ -35,13 +35,13 @@ O docseed serve a três propósitos ao mesmo tempo: **portfólio** (demonstrar e
 
 **Critério de saída:** rodar `pnpm dlx docseed init` num diretório vazio e ter docs prontas para preencher, idênticas em estrutura ao que produzimos manualmente.
 
-## Fase 2 — Expansão (~v0.2.x)
+## Fase 2: Expansão (~v0.2.x)
 
 - Presets `saas` e `enterprise`
-- Comando `add` completo (feature, bug spec incremental) — `add adr` já entrou no MVP
+- Comando `add` completo (feature, bug spec incremental), `add adr` já entrou no MVP
 - Comando `sync` (valida estrutura existente, aponta gaps por preset)
 
-## Fase 3 — Customização (~v0.3.x)
+## Fase 3: Customização (~v0.3.x)
 
 - Config file `docseed.config.mjs` (custom presets, vars adicionais, hooks)
 - Override formal por config (não só por filesystem)
@@ -49,9 +49,9 @@ O docseed serve a três propósitos ao mesmo tempo: **portfólio** (demonstrar e
 
 ---
 
-## Marco 1.0.0 — Estabilidade
+## Marco 1.0.0: Estabilidade
 
-`1.0.0` não é "mais features" — é o compromisso de **não quebrar o que já existe**. Declarado quando a superfície pública está estável e battle-tested.
+`1.0.0` não é "mais features": é o compromisso de **não quebrar o que já existe**. Declarado quando a superfície pública está estável e battle-tested.
 
 **Critérios para 1.0:**
 
@@ -66,7 +66,7 @@ O docseed serve a três propósitos ao mesmo tempo: **portfólio** (demonstrar e
 
 ---
 
-## Fase 4 — Pós-1.0 (~v1.x)
+## Fase 4: Pós-1.0 (~v1.x)
 
 Features aditivas sobre a base estável. Cada item é um minor (`1.1`, `1.2`...).
 

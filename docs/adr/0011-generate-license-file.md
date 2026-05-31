@@ -1,4 +1,4 @@
-# ADR 0011 — Geração de arquivo LICENSE
+# ADR 0011: Geração de arquivo LICENSE
 
 - **Status:** Accepted
 - **Data:** 2026-05-29
@@ -9,9 +9,9 @@ O wizard coleta a variável `license` (condicional a `isOpenSource`). Faltava de
 
 ## Opções consideradas
 
-- **Gerar arquivo `LICENSE`** — quando `isOpenSource`, o docseed escreve um `LICENSE` com o texto da licença escolhida (MIT, Apache-2.0, GPL-3.0). É o que devs esperam de um scaffold; alinha com o Standard Readme (seção License).
-- **Só menção no README** — `license` vira apenas uma linha no README gerado. Mais simples, mas deixa o projeto sem o arquivo de licença que o GitHub e o npm reconhecem.
-- **Não perguntar `license` no MVP** — remove a dimensão até haver demanda. Reduz escopo, mas perde uma necessidade real e comum.
+- **Gerar arquivo `LICENSE`**: quando `isOpenSource`, o docseed escreve um `LICENSE` com o texto da licença escolhida (MIT, Apache-2.0, GPL-3.0). É o que devs esperam de um scaffold; alinha com o Standard Readme (seção License).
+- **Só menção no README**: `license` vira apenas uma linha no README gerado. Mais simples, mas deixa o projeto sem o arquivo de licença que o GitHub e o npm reconhecem.
+- **Não perguntar `license` no MVP**: remove a dimensão até haver demanda. Reduz escopo, mas perde uma necessidade real e comum.
 
 ## Decisão
 

@@ -1,4 +1,4 @@
-# ADR 0002 — CLI stack: commander + @clack/prompts
+# ADR 0002: CLI stack: commander + @clack/prompts
 
 - **Status:** Accepted
 - **Data:** 2026-05-28
@@ -9,10 +9,10 @@ A CLI tem dois sub-problemas distintos: parsing de argumentos (flags, subcomando
 
 ## Opções consideradas
 
-- **commander (args) + @clack/prompts (wizard)** — bibliotecas leves e focadas, composáveis. @clack tem UX moderna (spinners, grupos, cancel handling) e bundle pequeno.
-- **oclif** — framework completo (Salesforce). Poderoso, mas pesado, opinativo e gera boilerplate desproporcional para o escopo.
-- **yargs + inquirer** — maduros, mas inquirer é verboso e tem UX datada.
-- **cac / sade** — minimalistas, ecossistema menor e menos exemplos.
+- **commander (args) + @clack/prompts (wizard)**: bibliotecas leves e focadas, composáveis. @clack tem UX moderna (spinners, grupos, cancel handling) e bundle pequeno.
+- **oclif**: framework completo (Salesforce). Poderoso, mas pesado, opinativo e gera boilerplate desproporcional para o escopo.
+- **yargs + inquirer**: maduros, mas inquirer é verboso e tem UX datada.
+- **cac / sade**: minimalistas, ecossistema menor e menos exemplos.
 
 ## Decisão
 

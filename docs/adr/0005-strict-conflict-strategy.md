@@ -1,4 +1,4 @@
-# ADR 0005 — Estratégia strict de conflito em `docs/`
+# ADR 0005: Estratégia strict de conflito em `docs/`
 
 - **Status:** Accepted
 - **Data:** 2026-05-28
@@ -9,17 +9,17 @@ Ao rodar `docseed init`, a pasta `docs/` pode já conter arquivos. Sobrescrever 
 
 ## Opções consideradas
 
-- **Strict (abort + flags)** — se houver conflito, aborta e lista os arquivos; `--force`, `--merge` e `--dry-run` dão controle explícito.
-- **Interactive** — pergunta por conflito (estilo yeoman). Mais amigável para humano, mas exige `--yes` em CI e adiciona código.
-- **Backup** — renomeia `docs/` para `docs.bak.{timestamp}/` e escreve por cima. Zero perda, mas polui o filesystem e o git.
+- **Strict (abort + flags)**: se houver conflito, aborta e lista os arquivos; `--force`, `--merge` e `--dry-run` dão controle explícito.
+- **Interactive**: pergunta por conflito (estilo yeoman). Mais amigável para humano, mas exige `--yes` em CI e adiciona código.
+- **Backup**: renomeia `docs/` para `docs.bak.{timestamp}/` e escreve por cima. Zero perda, mas polui o filesystem e o git.
 
 ## Decisão
 
 Usar a estratégia **strict**. Por padrão, aborta com erro listando os conflitos. Flags:
 
-- `--force` — sobrescreve tudo
-- `--merge` — só cria arquivos que ainda não existem (skip existing)
-- `--dry-run` — preview, não escreve nada
+- `--force`: sobrescreve tudo
+- `--merge`: só cria arquivos que ainda não existem (skip existing)
+- `--dry-run`: preview, não escreve nada
 
 ## Consequências
 

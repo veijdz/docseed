@@ -1,4 +1,4 @@
-# ADR 0004 — pnpm como package manager
+# ADR 0004: pnpm como package manager
 
 - **Status:** Accepted
 - **Data:** 2026-05-28
@@ -9,9 +9,9 @@ Escolha do package manager para o desenvolvimento do docseed. A distribuição p
 
 ## Opções consideradas
 
-- **pnpm** — store content-addressable, install rápido, disk-efficient, `node_modules` estrito (evita phantom dependencies).
-- **npm** — default e universal, mas mais lento e com `node_modules` flat que permite phantom deps.
-- **yarn (berry)** — rápido, mas PnP gera atrito com algumas ferramentas do ecossistema.
+- **pnpm**: store content-addressable, install rápido, disk-efficient, `node_modules` estrito (evita phantom dependencies).
+- **npm**: default e universal, mas mais lento e com `node_modules` flat que permite phantom deps.
+- **yarn (berry)**: rápido, mas PnP gera atrito com algumas ferramentas do ecossistema.
 
 ## Decisão
 
