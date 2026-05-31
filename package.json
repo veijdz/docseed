@@ -1,0 +1,55 @@
+{
+  "name": "docseed",
+  "version": "0.0.0",
+  "description": "CLI para gerar estrutura inicial de documentação de projetos, calibrada ao escopo.",
+  "type": "module",
+  "license": "MIT",
+  "author": "veijdz",
+  "homepage": "https://github.com/veijdz/docseed#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veijdz/docseed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/veijdz/docseed/issues"
+  },
+  "keywords": [
+    "cli",
+    "documentation",
+    "scaffolding",
+    "templates",
+    "adr"
+  ],
+  "bin": {
+    "docseed": "./dist/index.mjs"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.3.0",
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.5.0",
+    "commander": "^15.0.0",
+    "handlebars": "^4.7.9"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
+    "@types/node": "^25.9.1",
+    "tsdown": "^0.22.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  }
+}
