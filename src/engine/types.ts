@@ -83,10 +83,11 @@ export interface LoadedTemplate {
 /**
  * renderer.ts (#19) deve exportar:
  *
- *   export function render(template: string, vars: InputVars): string
+ *   export function render(template: string, vars: object): string
  *
  * Compila e renderiza o template Handlebars, injetando automaticamente
- * `date` (new Date().toISOString().slice(0, 10)) e `year`.
+ * `date` (new Date().toISOString().slice(0, 10)) e `year`. Aceita qualquer
+ * objeto de vars: presets passam InputVars, `add adr` passa as suas próprias.
  */
 
 // ---- conflict (#20) ----
