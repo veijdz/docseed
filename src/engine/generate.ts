@@ -17,9 +17,9 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
   for (const doc of preset.docs) {
     const loaded = loadTemplate(doc.template, { cwd, bundledRoot })
     const content = render(loaded.content, vars)
-    const absPath = resolve(cwd, 'docs', doc.output)
+    const absPath = resolve(cwd, 'docs', doc.path)
     contentByPath.set(absPath, content)
-    planned.push({ output: doc.output, absPath })
+    planned.push({ output: doc.path, absPath })
   }
 
   const decision = resolveConflicts(planned, opts.strategy, (p) => existsSync(p))

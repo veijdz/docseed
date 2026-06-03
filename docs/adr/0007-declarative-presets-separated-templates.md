@@ -17,6 +17,23 @@
 
 Representar **presets como JSON declarativo** em `src/presets/` e manter os **templates `.hbs` separados** em `templates/`.
 
+### Schema do preset
+
+```jsonc
+{
+  "id": "minimal",                 // identificador usado em --preset e no select do wizard
+  "label": "Minimal: ...",         // rótulo legível exibido no wizard
+  "requiredVars": ["projectName"], // variáveis obrigatórias (validadas no modo não-interativo)
+  "docs": [
+    { "template": "shared/README.md", "path": "README.md" }
+    // template: ref relativo à raiz de templates, sem `.hbs`
+    // path: caminho de saída relativo a `docs/`
+  ]
+}
+```
+
+Esse schema é o contrato `Preset`/`PresetDoc` em `src/engine/types.ts`. O loader (`src/presets/loader.ts`) valida cada JSON no startup e falha com erro descritivo se o shape divergir.
+
 ## Consequências
 
 **Positivas:**

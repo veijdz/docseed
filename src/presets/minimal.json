@@ -1,0 +1,10 @@
+{
+  "id": "minimal",
+  "label": "Minimal: README, GOALS, TASKS",
+  "requiredVars": ["projectName", "author"],
+  "docs": [
+    { "template": "shared/README.md", "path": "README.md" },
+    { "template": "shared/GOALS.md", "path": "GOALS.md" },
+    { "template": "shared/TASKS.md", "path": "TASKS.md" }
+  ]
+}
