@@ -58,3 +58,7 @@ export function getPreset(id: string): Preset {
   }
   return preset
 }
+
+export function listPresets(): Preset[] {
+  return Object.values(registry)
+}
