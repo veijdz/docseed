@@ -1,0 +1,13 @@
+{
+  "id": "mvp",
+  "label": "MVP: README, PRD, ARCHITECTURE, ROADMAP, TASKS, GOALS",
+  "requiredVars": ["projectName", "author", "shortDescription"],
+  "docs": [
+    { "template": "shared/README.md", "path": "README.md" },
+    { "template": "mvp/PRD.md", "path": "PRD.md" },
+    { "template": "mvp/ARCHITECTURE.md", "path": "ARCHITECTURE.md" },
+    { "template": "mvp/ROADMAP.md", "path": "ROADMAP.md" },
+    { "template": "shared/TASKS.md", "path": "TASKS.md" },
+    { "template": "shared/GOALS.md", "path": "GOALS.md" }
+  ]
+}
