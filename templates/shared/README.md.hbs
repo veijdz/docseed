@@ -1,0 +1,49 @@
+# {{projectName}}
+
+> {{shortDescription}}
+
+{{#if (eq preset "mvp")}}
+Documentação de planejamento e design do projeto.
+
+| Documento | Propósito |
+| --------- | --------- |
+| [PRD.md](PRD.md) | Problema, solução, usuários e escopo |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Stack, estrutura de pastas e decisões |
+| [ROADMAP.md](ROADMAP.md) | Fases de desenvolvimento e marcos |
+| [GOALS.md](GOALS.md) | Objetivos e métricas de sucesso |
+| [TASKS.md](TASKS.md) | Backlog e acompanhamento |
+{{else}}
+## Sobre
+
+Descreva aqui o que é o {{projectName}} e o problema que ele resolve.
+
+## Documentos
+
+- [GOALS.md](GOALS.md): objetivos e métricas de sucesso
+- [TASKS.md](TASKS.md): backlog e acompanhamento
+{{/if}}
+
+{{#if (eq projectType "cli")}}
+## Uso
+
+```bash
+npx {{projectName}} --help
+```
+{{/if}}
+{{#if (eq projectType "library")}}
+## Instalação
+
+```bash
+npm install {{projectName}}
+```
+{{/if}}
+
+{{#if isOpenSource}}
+## Licença
+
+{{projectName}} é distribuído sob a licença {{license}}.
+{{/if}}
+
+---
+
+Autor: {{author}} · Criado em {{date}}
