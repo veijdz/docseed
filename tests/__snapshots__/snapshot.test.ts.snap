@@ -1,0 +1,224 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`preset snapshots > renders the minimal preset deterministically 1`] = `
+{
+  "GOALS.md": "# Objetivos: acme-app
+
+## Visão
+
+Uma frase sobre onde o acme-app quer chegar.
+
+## Objetivos
+
+- [ ] Objetivo 1
+- [ ] Objetivo 2
+- [ ] Objetivo 3
+
+## Métricas de sucesso
+
+| Métrica | Alvo |
+| ------- | ---- |
+| (defina) | (defina) |
+
+## Não-objetivos
+
+O que o acme-app explicitamente não busca resolver.
+
+---
+
+Autor: Jane Doe · Atualizado em 2026-01-01
+",
+  "README.md": "# acme-app
+
+> A sample project
+
+## Sobre
+
+Descreva aqui o que é o acme-app e o problema que ele resolve.
+
+## Documentos
+
+- [GOALS.md](GOALS.md): objetivos e métricas de sucesso
+- [TASKS.md](TASKS.md): backlog e acompanhamento
+
+## Uso
+
+\`\`\`bash
+npx acme-app --help
+\`\`\`
+
+## Licença
+
+acme-app é distribuído sob a licença MIT.
+
+---
+
+Autor: Jane Doe · Criado em 2026-01-01
+",
+  "TASKS.md": "# Tarefas: acme-app
+
+Backlog e acompanhamento do trabalho.
+
+## A fazer
+
+- [ ] Primeira tarefa
+
+## Em andamento
+
+- [ ] (nada por enquanto)
+
+## Concluído
+
+- [x] Projeto iniciado (2026-01-01)
+",
+}
+`;
+
+exports[`preset snapshots > renders the mvp preset deterministically 1`] = `
+{
+  "ARCHITECTURE.md": "# Arquitetura: acme-app
+
+## Stack
+
+- Runtime: (defina)
+- Distribuição: (defina)
+
+## Estrutura de pastas
+
+\`\`\`
+acme-app/
+├── src/
+└── ...
+\`\`\`
+
+## Decisões principais
+
+### (título da decisão)
+
+Contexto, opções consideradas e a escolha.
+
+## Decisões registradas (ADRs)
+
+Registre cada decisão arquitetural como um ADR. Use \`docseed add adr\` para adicionar o próximo.
+",
+  "GOALS.md": "# Objetivos: acme-app
+
+## Visão
+
+Uma frase sobre onde o acme-app quer chegar.
+
+## Objetivos
+
+- [ ] Objetivo 1
+- [ ] Objetivo 2
+- [ ] Objetivo 3
+
+## Métricas de sucesso
+
+| Métrica | Alvo |
+| ------- | ---- |
+| (defina) | (defina) |
+
+## Não-objetivos
+
+O que o acme-app explicitamente não busca resolver.
+
+---
+
+Autor: Jane Doe · Atualizado em 2026-01-01
+",
+  "PRD.md": "# PRD: acme-app
+
+## Problema
+
+Descreva o problema que o acme-app resolve e por que ele importa.
+
+## Solução
+
+A sample project
+
+## Usuários-alvo
+
+- (perfil de usuário 1)
+- (perfil de usuário 2)
+
+## Escopo (MVP)
+
+- (funcionalidade essencial 1)
+- (funcionalidade essencial 2)
+
+## Não-escopo
+
+- (o que fica de fora do MVP)
+
+## Métrica de sucesso
+
+Como saber que o acme-app resolveu o problema.
+",
+  "README.md": "# acme-app
+
+> A sample project
+
+Documentação de planejamento e design do projeto.
+
+| Documento | Propósito |
+| --------- | --------- |
+| [PRD.md](PRD.md) | Problema, solução, usuários e escopo |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Stack, estrutura de pastas e decisões |
+| [ROADMAP.md](ROADMAP.md) | Fases de desenvolvimento e marcos |
+| [GOALS.md](GOALS.md) | Objetivos e métricas de sucesso |
+| [TASKS.md](TASKS.md) | Backlog e acompanhamento |
+
+## Uso
+
+\`\`\`bash
+npx acme-app --help
+\`\`\`
+
+## Licença
+
+acme-app é distribuído sob a licença MIT.
+
+---
+
+Autor: Jane Doe · Criado em 2026-01-01
+",
+  "ROADMAP.md": "# Roadmap: acme-app
+
+## Fase 1: MVP
+
+- (entrega 1)
+- (entrega 2)
+
+**Critério de saída:** (o que define o MVP como pronto)
+
+## Fase 2: Expansão
+
+- (entrega futura)
+
+## Marco 1.0.0: Estabilidade
+
+- [ ] (critério de estabilidade)
+
+---
+
+Atualizado em 2026-01-01.
+",
+  "TASKS.md": "# Tarefas: acme-app
+
+Backlog e acompanhamento do trabalho.
+
+## A fazer
+
+- [ ] Primeira tarefa
+
+## Em andamento
+
+- [ ] (nada por enquanto)
+
+## Concluído
+
+- [x] Projeto iniciado (2026-01-01)
+",
+}
+`;
