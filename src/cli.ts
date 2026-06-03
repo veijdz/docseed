@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { Command } from 'commander'
+import { registerAddCommand } from './commands/add'
 import { registerInitCommand } from './commands/init'
 
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as {
@@ -11,5 +12,6 @@ export function buildProgram(): Command {
   const program = new Command()
   program.name('docseed').description(pkg.description).version(pkg.version)
   registerInitCommand(program)
+  registerAddCommand(program)
   return program
 }
