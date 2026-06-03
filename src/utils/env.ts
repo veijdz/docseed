@@ -4,6 +4,8 @@ import { execSync } from 'node:child_process'
 export function toKebabCase(input: string): string {
   return input
     .trim()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
     .replace(/[\s_]+/g, '-')
     .replace(/[^a-zA-Z0-9-]/g, '')
