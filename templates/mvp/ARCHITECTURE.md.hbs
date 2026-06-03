@@ -1,0 +1,42 @@
+# Arquitetura: {{projectName}}
+
+## Stack
+
+{{#if (eq projectType "web")}}
+- Frontend: (defina)
+- Backend: (defina)
+- Banco de dados: (defina)
+{{/if}}
+{{#if (eq projectType "cli")}}
+- Runtime: (defina)
+- Distribuição: (defina)
+{{/if}}
+{{#if (eq projectType "library")}}
+- Linguagem: (defina)
+- Build: (defina)
+{{/if}}
+{{#if (eq projectType "mobile")}}
+- Plataforma: (defina)
+- Framework: (defina)
+{{/if}}
+{{#if (eq projectType "other")}}
+- (descreva a stack)
+{{/if}}
+
+## Estrutura de pastas
+
+```
+{{projectName}}/
+├── src/
+└── ...
+```
+
+## Decisões principais
+
+### (título da decisão)
+
+Contexto, opções consideradas e a escolha.
+
+## Decisões registradas (ADRs)
+
+Registre cada decisão arquitetural como um ADR. Use `docseed add adr` para adicionar o próximo.
