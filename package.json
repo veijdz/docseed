@@ -23,6 +23,12 @@
   "bin": {
     "docseed": "./dist/index.mjs"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": [
     "dist",
     "templates"
@@ -38,7 +44,8 @@
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm build && pnpm test"
   },
   "dependencies": {
     "@clack/prompts": "^1.5.0",
