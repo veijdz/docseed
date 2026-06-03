@@ -34,13 +34,18 @@ export interface PresetDoc {
   /** Template ref (sem `.hbs`), relativo à raiz de templates. Ex.: 'shared/README.md'. */
   template: string
   /** Caminho de saída relativo a `docs/`. Ex.: 'README.md'. */
-  output: string
+  path: string
 }
 
-/** Preset declarativo (definição completa vem do épico de presets). */
+/** Preset declarativo (ADR 0007). Carregado e validado por src/presets/loader.ts. */
 export interface Preset {
-  name: string
+  /** Identificador usado em `--preset` e no select do wizard. Ex.: 'minimal'. */
+  id: string
+  /** Rótulo legível exibido no wizard. */
+  label: string
   docs: PresetDoc[]
+  /** Variáveis obrigatórias para gerar este preset (validadas no modo não-interativo). */
+  requiredVars: string[]
 }
 
 /** Estratégia de conflito em docs/ existente (ADR 0005). */
