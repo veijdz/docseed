@@ -26,6 +26,7 @@ describe('docseed CLI', () => {
     const init = program.commands.find((c) => c.name() === 'init')
     if (!init) throw new Error('init command not registered')
     init.exitOverride()
+    init.configureOutput({ writeErr: () => {} })
     expect(() => program.parse(['init', '--force', '--merge'], { from: 'user' })).toThrow()
   })
 })
