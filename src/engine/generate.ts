@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { renderLicense } from '../license'
 import { resolveConflicts } from './conflict'
 import { loadTemplate } from './loader'
 import { render } from './renderer'
@@ -22,6 +23,16 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
     planned.push({ output: doc.path, absPath })
   }
 
+  if (vars.isOpenSource && vars.license) {
+    const year = new Date().toISOString().slice(0, 4)
+    const licenseText = renderLicense(vars.license, { author: vars.author, year })
+    if (licenseText !== null) {
+      const absPath = resolve(cwd, 'LICENSE')
+      contentByPath.set(absPath, licenseText)
+      planned.push({ output: 'LICENSE', absPath })
+    }
+  }
+
   const decision = resolveConflicts(planned, opts.strategy, (p) => existsSync(p))
 
   if (opts.strategy === 'strict' && decision.conflicts.length > 0) {
@@ -40,7 +51,6 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
   return {
     created: decision.toWrite.map((p) => p.output),
     skipped: decision.toSkip.map((p) => p.output),
-    conflicts: decision.conflicts.map((p) => p.output),
     dryRun: opts.dryRun,
   }
 }

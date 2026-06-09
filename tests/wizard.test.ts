@@ -145,6 +145,15 @@ describe('collectVars (interactive cancellation)', () => {
       CancelledError,
     )
   })
+
+  it('treats a whitespace-only --description as absent and prompts in interactive mode', async () => {
+    await expect(
+      collectVars(
+        { name: 'x', author: 'Jane', preset: 'minimal', description: '   ' },
+        { yes: false, cwd: '/nowhere' },
+      ),
+    ).rejects.toBeInstanceOf(CancelledError)
+  })
 })
 
 describe('runInit (end-to-end)', () => {

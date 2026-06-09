@@ -29,7 +29,7 @@ const PROJECT_TYPES: { value: ProjectType; label: string }[] = [
   { value: 'other', label: 'Outro' },
 ]
 
-const LICENSES = ['MIT', 'Apache-2.0', 'GPL-3.0', 'proprietary']
+const LICENSES = ['MIT', 'Apache-2.0', 'GPL-3.0']
 
 /** Thrown by `unwrap` when the user cancels a prompt; handled by the command actions. */
 export class CancelledError extends Error {
@@ -141,7 +141,7 @@ async function runWizard(flags: VarFlags, cwd: string): Promise<InputVars> {
     )
 
   const shortDescription =
-    flags.description?.trim() ??
+    flags.description?.trim() ||
     unwrap(await text({ message: 'Descrição curta', placeholder: '', defaultValue: '' }))
 
   const preset =
