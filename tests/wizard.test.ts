@@ -18,6 +18,13 @@ vi.mock('@clack/prompts', () => ({
   confirm: async () => CANCEL,
 }))
 
+// Stub gitUserName so the author fallback is deterministic regardless of the
+// host's git config (CI has none); keep toKebabCase real.
+vi.mock('../src/utils/env', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../src/utils/env')>()),
+  gitUserName: () => 'Git User',
+}))
+
 const tmp = () => mkdtempSync(join(tmpdir(), 'docseed-'))
 const templatesRoot = fileURLToPath(new URL('../templates', import.meta.url))
 
@@ -128,7 +135,7 @@ describe('collectVars (non-interactive)', () => {
       { name: 'x', author: '  ', preset: 'minimal' },
       { yes: true, cwd: '/nowhere' },
     )
-    expect(typeof vars.author).toBe('string')
+    expect(vars.author).toBe('Git User')
   })
 })
 
