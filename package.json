@@ -1,6 +1,6 @@
 {
   "name": "docseed",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "CLI para gerar estrutura inicial de documentação de projetos, calibrada ao escopo.",
   "type": "module",
   "license": "MIT",
