@@ -27,4 +27,4 @@ Quando `isOpenSource` for verdadeiro, **gerar um arquivo `LICENSE`** no projeto 
 **Negativas:**
 
 - O docseed precisa embarcar os textos das licenças suportadas (MIT, Apache-2.0, GPL-3.0) como templates.
-- O modo `--yes` precisa ser coerente: hoje define `isOpenSource=false` + `license=MIT`. Com esta decisão, ou `--yes` assume `isOpenSource=true` para justificar o `LICENSE`, ou não gera `LICENSE` quando `isOpenSource=false` (a definir na implementação do wizard, issues #14/#15).
+- No modo `--yes`, `isOpenSource` assume `false` por padrão e nenhum `LICENSE` é gerado, a menos que se passe `--open-source --license <id>` explicitamente.
