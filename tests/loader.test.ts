@@ -53,6 +53,8 @@ describe('loadTemplate', () => {
     const cwd = tempDir('docseed-cwd-')
     const bundled = tempDir('docseed-bundled-')
 
-    expect(() => loadTemplate('does-not-exist', { cwd, bundledRoot: bundled })).toThrow(/not found/)
+    expect(() => loadTemplate('does-not-exist', { cwd, bundledRoot: bundled })).toThrow(
+      /não encontrado/,
+    )
   })
 })

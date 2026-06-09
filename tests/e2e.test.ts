@@ -16,7 +16,7 @@ describe('docseed init (real binary)', () => {
 
   it('writes the mvp docs with no orphan mustaches', () => {
     const tmpDir = mkdtempSync(join(tmpdir(), 'docseed-e2e-'))
-    execSync(`node ${binary} init --preset mvp --yes --name test --author x`, {
+    execSync(`node ${binary} init --preset mvp --yes --name test --author x --description y`, {
       cwd: tmpDir,
       stdio: 'ignore',
     })
