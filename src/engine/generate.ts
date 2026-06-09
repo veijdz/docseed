@@ -51,7 +51,6 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
   return {
     created: decision.toWrite.map((p) => p.output),
     skipped: decision.toSkip.map((p) => p.output),
-    conflicts: decision.conflicts.map((p) => p.output),
     dryRun: opts.dryRun,
   }
 }

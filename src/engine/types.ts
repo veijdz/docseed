@@ -142,6 +142,5 @@ export interface GenerateOptions {
 export interface GenerateSummary {
   created: string[]
   skipped: string[]
-  conflicts: string[]
   dryRun: boolean
 }
