@@ -30,13 +30,13 @@ Mercado existente:
 
 ## Escopo MVP (v0.1)
 
-- Comando `init` com wizard interativo (6-7 perguntas)
+- Comando `init` com wizard interativo (6-7 perguntas no máximo; passar a flag correspondente como `--name`, `--author` ou `--preset` pula a pergunta equivalente)
 - Comando `add adr`: adiciona o próximo ADR sequencial a um projeto existente (uso recorrente, cria hábito de voltar à ferramenta)
 - 2 presets funcionando: `minimal`, `mvp`
 - Templates Markdown editáveis localmente, gerados em **pt-BR** (ver ADR 0010)
 - Geração de arquivo `LICENSE` quando o projeto é open source, a partir da `license` escolhida (ver ADR 0011)
 - Override de templates por filesystem (`.docseed/templates/<arquivo>.hbs`), sem config file
-- Variáveis substituídas no render: vindas do wizard (projectName, author, shortDescription, preset, isOpenSource, projectType e license, esta só se open source) mais as derivadas no render (date, year)
+- Variáveis substituídas no render: vindas do wizard (projectName, author, shortDescription, preset, isOpenSource, projectType e license, esta só se open source) mais as derivadas no render (date)
 - Conflito de `docs/` existente: estratégia strict (abort + flags `--force` / `--merge` / `--dry-run`)
 - Modo não-interativo via `--yes` + flags
 

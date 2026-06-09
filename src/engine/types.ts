@@ -22,12 +22,10 @@ export interface TemplateVars {
   license?: string
   /** Injetada automaticamente pelo renderer (YYYY-MM-DD). */
   date: string
-  /** Injetado automaticamente pelo renderer (deriva de date). */
-  year: string
 }
 
-/** Variáveis do wizard/flags, antes da injeção automática de date/year. */
-export type InputVars = Omit<TemplateVars, 'date' | 'year'>
+/** Variáveis do wizard/flags, antes da injeção automática de date. */
+export type InputVars = Omit<TemplateVars, 'date'>
 
 /** Um documento que o preset manda gerar. */
 export interface PresetDoc {
@@ -90,8 +88,8 @@ export interface LoadedTemplate {
  *   export function render(template: string, vars: object): string
  *
  * Compila e renderiza o template Handlebars, injetando automaticamente
- * `date` (new Date().toISOString().slice(0, 10)) e `year`. Aceita qualquer
- * objeto de vars: presets passam InputVars, `add adr` passa as suas próprias.
+ * `date` (new Date().toISOString().slice(0, 10)). Aceita qualquer objeto de
+ * vars: presets passam InputVars, `add adr` passa as suas próprias.
  */
 
 // ---- conflict (#20) ----
