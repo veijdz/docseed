@@ -44,7 +44,11 @@ export interface Preset {
   /** Rótulo legível exibido no wizard. */
   label: string
   docs: PresetDoc[]
-  /** Variáveis obrigatórias para gerar este preset (validadas no modo não-interativo). */
+  /**
+   * Variáveis obrigatórias para gerar este preset. No modo não-interativo
+   * (--yes) são validadas como hard error: se alguma estiver vazia/ausente,
+   * a geração aborta listando os campos faltantes.
+   */
   requiredVars: string[]
 }
 
