@@ -3,16 +3,12 @@ import { existsSync, mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { beforeAll, describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url))
 const binary = join(repoRoot, 'dist', 'index.mjs')
 
 describe('docseed add adr (real binary)', () => {
-  beforeAll(() => {
-    execSync('pnpm -s build', { cwd: repoRoot, stdio: 'ignore' })
-  }, 120000)
-
   it('creates the first ADR and the index, then increments on a second call', () => {
     const cwd = mkdtempSync(join(tmpdir(), 'docseed-add-adr-e2e-'))
 
