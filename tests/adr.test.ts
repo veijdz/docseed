@@ -94,6 +94,20 @@ describe('runAddAdr', () => {
     expect(index.indexOf('0002-segunda-decisao')).toBeLessThan(index.indexOf('Status possíveis'))
   })
 
+  it('appends the row at end-of-file when the index has no table', () => {
+    const cwd = tmp()
+    const adrDir = join(cwd, 'docs', 'adr')
+    mkdirSync(adrDir, { recursive: true })
+    writeFileSync(join(adrDir, 'README.md'), '# ADR\n\nsem tabela\n')
+
+    const result = runAddAdr('Primeira decisão', cwd, templatesRoot)
+    const index = readFileSync(join(cwd, result.indexPath), 'utf8')
+
+    expect(index).toBe(
+      '# ADR\n\nsem tabela\n\n| [0001](0001-primeira-decisao.md) | Primeira decisão | Proposed |\n',
+    )
+  })
+
   it('rejects a title that produces an empty slug', () => {
     const cwd = tmp()
     expect(() => runAddAdr('!!!', cwd, templatesRoot)).toThrow(/empty slug/)

@@ -90,3 +90,17 @@ describe('docseed init cancellation', () => {
     expect(process.exitCode).toBe(1)
   })
 })
+
+describe('docseed add adr failure', () => {
+  const realExitCode = process.exitCode
+
+  afterEach(() => {
+    process.exitCode = realExitCode
+  })
+
+  it('exits non-zero when the title produces an empty slug', async () => {
+    const program = buildProgram()
+    await program.parseAsync(['add', 'adr', '!!!'], { from: 'user' })
+    expect(process.exitCode).toBe(1)
+  })
+})

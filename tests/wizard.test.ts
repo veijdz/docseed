@@ -130,6 +130,15 @@ describe('collectVars (non-interactive)', () => {
     expect(vars.projectName).toBe('cool-dir')
   })
 
+  it('rejects a --name that kebab-cases to an empty slug', async () => {
+    await expect(
+      collectVars(
+        { name: '!!!', author: 'Jane', preset: 'minimal' },
+        { yes: true, cwd: '/nowhere' },
+      ),
+    ).rejects.toThrow(/projectName é obrigatório/)
+  })
+
   it('falls back to git user when --author is empty/whitespace', async () => {
     const vars = await collectVars(
       { name: 'x', author: '  ', preset: 'minimal' },

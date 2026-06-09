@@ -50,6 +50,18 @@ describe('docseed init (real binary)', () => {
       expect(readFileSync(file, 'utf8')).not.toContain('{{')
     }
   }, 60000)
+
+  it('writes a LICENSE at the project root when open source with --license', () => {
+    const tmpDir = mkdtempSync(join(tmpdir(), 'docseed-e2e-license-'))
+    initMvp(tmpDir, '--open-source --license MIT')
+
+    const license = join(tmpDir, 'LICENSE')
+    expect(existsSync(license)).toBe(true)
+
+    const contents = readFileSync(license, 'utf8')
+    expect(contents).toContain('Copyright (c) ')
+    expect(contents).toContain(String(new Date().getFullYear()))
+  }, 60000)
 })
 
 describe('docseed init conflict strategies (real binary)', () => {
