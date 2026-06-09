@@ -113,13 +113,13 @@ describe('collectVars (non-interactive)', () => {
         { name: 'x', author: 'Jane', preset: 'minimal', openSource: true, license: 'BSD' },
         { yes: true, cwd: '/nowhere' },
       ),
-    ).rejects.toThrow(/Invalid --license/)
+    ).rejects.toThrow(/Licença inválida/)
   })
 
   it('errors when a preset requiredVar is missing', async () => {
     await expect(
       collectVars({ name: 'x', author: 'Jane', preset: 'mvp' }, { yes: true, cwd: '/nowhere' }),
-    ).rejects.toThrow(/Missing required vars for preset 'mvp': shortDescription/)
+    ).rejects.toThrow(/Variáveis obrigatórias ausentes para o preset 'mvp': shortDescription/)
   })
 
   it('falls back to basename when --name is empty/whitespace', async () => {

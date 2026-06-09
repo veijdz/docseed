@@ -68,7 +68,7 @@ function resolveProjectType(value: string): ProjectType {
 /** Validate a license flag against the known LICENSES list. */
 function resolveLicense(value: string): string {
   if (!LICENSES.includes(value)) {
-    throw new Error(`Invalid --license '${value}'. Valid values: ${LICENSES.join(', ')}.`)
+    throw new Error(`Licença inválida '${value}'. Valores válidos: ${LICENSES.join(', ')}.`)
   }
   return value
 }
@@ -109,8 +109,8 @@ function assertRequiredVars(preset: string, vars: InputVars): void {
   })
   if (missing.length > 0) {
     throw new Error(
-      `Missing required vars for preset '${preset}': ${missing.join(', ')}. ` +
-        'Pass the matching flag (e.g. --description, --author) or run interactively.',
+      `Variáveis obrigatórias ausentes para o preset '${preset}': ${missing.join(', ')}. ` +
+        'Use a flag correspondente (ex.: --description, --author) ou rode em modo interativo.',
     )
   }
 }
