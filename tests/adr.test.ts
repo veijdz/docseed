@@ -52,6 +52,48 @@ describe('runAddAdr', () => {
     expect(index.indexOf('0003-terceira-decisao')).toBeLessThan(index.indexOf('Status possíveis'))
   })
 
+  it('counts existing ADR files case-insensitively when picking the next number', () => {
+    const cwd = tmp()
+    const adrDir = join(cwd, 'docs', 'adr')
+    mkdirSync(adrDir, { recursive: true })
+    writeFileSync(join(adrDir, '0003-foo.MD'), '# ADR 0003: Foo\n')
+
+    const result = runAddAdr('Quarta decisão', cwd, templatesRoot)
+
+    expect(result.number).toBe('0004')
+  })
+
+  it('is not fooled by a horizontal rule before the table', () => {
+    const cwd = tmp()
+    const adrDir = join(cwd, 'docs', 'adr')
+    mkdirSync(adrDir, { recursive: true })
+    writeFileSync(join(adrDir, '0001-foo.md'), '# ADR 0001: Foo\n')
+    writeFileSync(
+      join(adrDir, 'README.md'),
+      [
+        '# ADR',
+        '',
+        '---',
+        '',
+        '| ADR | Decisão | Status |',
+        '| --- | --- | --- |',
+        '| [0001](0001-foo.md) | Foo | Accepted |',
+        '',
+        '**Status possíveis:** Proposed, Accepted.',
+        '',
+      ].join('\n'),
+    )
+
+    const result = runAddAdr('Segunda decisão', cwd, templatesRoot)
+    const index = readFileSync(join(cwd, result.indexPath), 'utf8')
+
+    // the new row lands inside the table, right after the last table row
+    expect(index).toContain(
+      '| [0001](0001-foo.md) | Foo | Accepted |\n| [0002](0002-segunda-decisao.md) | Segunda decisão | Proposed |',
+    )
+    expect(index.indexOf('0002-segunda-decisao')).toBeLessThan(index.indexOf('Status possíveis'))
+  })
+
   it('rejects a title that produces an empty slug', () => {
     const cwd = tmp()
     expect(() => runAddAdr('!!!', cwd, templatesRoot)).toThrow(/empty slug/)
