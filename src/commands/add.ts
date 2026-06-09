@@ -1,7 +1,6 @@
-import { cancel, log, outro } from '@clack/prompts'
+import { log, outro } from '@clack/prompts'
 import type { Command } from 'commander'
 import { type AddAdrResult, addAdr } from '../adr'
-import { CancelledError } from '../wizard'
 
 /** Orchestrates `add adr`: generate the next ADR and update the index. */
 export function runAddAdr(title: string, cwd: string, bundledRoot?: string): AddAdrResult {
@@ -23,11 +22,6 @@ export function registerAddCommand(program: Command): void {
         const suffix = result.indexCreated ? ' (índice criado)' : ''
         outro(`Criado ${result.path}${suffix}. Índice atualizado.`)
       } catch (err) {
-        if (err instanceof CancelledError) {
-          cancel(err.message)
-          process.exitCode = 1
-          return
-        }
         log.error((err as Error).message)
         process.exitCode = 1
       }
