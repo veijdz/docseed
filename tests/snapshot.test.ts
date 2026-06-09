@@ -47,4 +47,22 @@ describe('preset snapshots', () => {
       expect(filesByPath).toMatchSnapshot()
     })
   }
+
+  it('renders placeholders for an empty shortDescription', () => {
+    const cwd = mkdtempSync(join(tmpdir(), 'docseed-snap-'))
+    const vars: InputVars = { ...baseVars, shortDescription: '', preset: 'mvp' }
+    const summary = generate(getPreset('mvp'), vars, {
+      strategy: 'force',
+      dryRun: false,
+      cwd,
+      bundledRoot,
+    })
+
+    const filesByPath: Record<string, string> = {}
+    for (const p of [...summary.created].sort()) {
+      filesByPath[p] = readFileSync(join(cwd, 'docs', p), 'utf8')
+    }
+
+    expect(filesByPath).toMatchSnapshot()
+  })
 })
