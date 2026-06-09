@@ -1,12 +1,16 @@
-name: CI
+name: Release
 
 on:
   push:
-    branches: [main]
-  pull_request:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,8 +32,8 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: Lint
-        run: pnpm lint
-
       - name: Test
         run: pnpm test
+
+      - name: Publish
+        run: npm publish --provenance --access public --tag alpha

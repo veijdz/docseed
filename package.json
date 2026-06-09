@@ -23,15 +23,14 @@
   "bin": {
     "docseed": "./dist/index.mjs"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs"
-    }
-  },
   "files": [
     "dist",
     "templates"
   ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "engines": {
     "node": ">=24"
   },
@@ -44,7 +43,7 @@
     "format": "biome format --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "pnpm build && pnpm test"
+    "prepublishOnly": "pnpm build && pnpm typecheck && pnpm lint && pnpm test"
   },
   "dependencies": {
     "@clack/prompts": "^1.5.0",
