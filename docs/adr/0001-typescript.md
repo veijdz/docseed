@@ -3,6 +3,8 @@
 - **Status:** Accepted
 - **Data:** 2026-05-28
 
+> **Atualização (2026-06-08):** o build passou a emitir **apenas ESM**; a saída CJS foi removida (ver ADR [0008](0008-tsdown-bundler.md)). O resto da decisão permanece.
+
 ## Contexto
 
 docseed é uma CLI distribuída via npm, mantida por longo prazo, com um contrato de preset que outros vão consumir e estender. Precisa de refactors seguros e boa DX. Escolha entre TypeScript e JavaScript puro.
@@ -14,7 +16,7 @@ docseed é uma CLI distribuída via npm, mantida por longo prazo, com um contrat
 
 ## Decisão
 
-Usar **TypeScript** na versão **6.x** (última geração JS-based; o 7.0, port nativo em Go, está no horizonte), compilado via `tsdown` para CJS + ESM (ver ADR [0008](0008-tsdown-bundler.md)).
+Usar **TypeScript** na versão **6.x** (última geração JS-based; o 7.0, port nativo em Go, está no horizonte), compilado via `tsdown` para ESM (ver ADR [0008](0008-tsdown-bundler.md)).
 
 `tsconfig` segue os defaults do TS 6, com `strict: true`, `module: "esnext"`, e usa `moduleResolution: "bundler"` (o antigo `node10` foi deprecado).
 

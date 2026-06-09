@@ -3,9 +3,11 @@
 - **Status:** Accepted
 - **Data:** 2026-05-28
 
+> **Atualização (2026-06-08):** o build passou a emitir **apenas ESM**; a saída CJS (dual format) foi removida. O tsdown segue sendo o bundler; só o formato de saída mudou. As menções a "dual ESM/CJS" abaixo refletem a decisão original.
+
 ## Contexto
 
-O código TypeScript precisa ser empacotado para `dist/`: dual ESM + CJS, geração de `.d.ts` e preservação do shebang do binário. A escolha original (`tsup`) entrou em manutenção lenta, e o ecossistema migra para bundlers baseados em [Rolldown](https://rolldown.rs).
+O código TypeScript precisa ser empacotado para `dist/`: saída ESM, geração de `.d.ts` e preservação do shebang do binário. (Na decisão original o alvo era dual ESM + CJS; a saída CJS foi removida depois, ver Atualização no topo.) A escolha original (`tsup`) entrou em manutenção lenta, e o ecossistema migra para bundlers baseados em [Rolldown](https://rolldown.rs).
 
 ## Opções consideradas
 
@@ -23,7 +25,7 @@ Usar **tsdown**, configurado via `tsdown.config.ts`.
 
 **Positivas:**
 
-- Build rápido (Rolldown); `.d.ts` + dual ESM/CJS + shebang sem configuração extra.
+- Build rápido (Rolldown); `.d.ts` + ESM + shebang sem configuração extra (o tsdown também gera CJS sem custo, mas o projeto optou por ESM apenas).
 - Alinhado ao futuro do ecossistema (Vite migrando para Rolldown).
 - Configuração mínima.
 
