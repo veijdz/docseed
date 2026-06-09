@@ -26,6 +26,6 @@ export function loadTemplate(ref: string, opts: LoaderOptions): LoadedTemplate {
   }
 
   throw new Error(
-    `Template '${ref}' not found. Tried override '${overridePath}' and bundled '${bundledPath}'.`,
+    `Template '${ref}' não encontrado. Procurado no override '${overridePath}' e no bundled '${bundledPath}'.`,
   )
 }

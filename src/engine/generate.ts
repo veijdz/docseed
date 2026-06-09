@@ -27,7 +27,7 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
   if (opts.strategy === 'strict' && decision.conflicts.length > 0) {
     const list = decision.conflicts.map((p) => p.output).join(', ')
     throw new Error(
-      `Conflict: these docs already exist (${list}). Use --force to overwrite or --merge to skip existing.`,
+      `Conflito: estes docs já existem (${list}). Use --force para sobrescrever ou --merge para pular os existentes.`,
     )
   }
 
