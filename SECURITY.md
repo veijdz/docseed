@@ -2,7 +2,7 @@
 
 ## Versões suportadas
 
-O docseed está em **alpha** (`0.1.0-alpha`). Apenas a última versão publicada recebe correções de segurança.
+O docseed está em **alpha**, pré-release (primeira versão prevista: `0.1.0-alpha`). Apenas a última versão publicada recebe correções de segurança.
 
 ## Reportando uma vulnerabilidade
 

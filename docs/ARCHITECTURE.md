@@ -91,7 +91,6 @@ Fase 3: opcionalmente adiciona `docseed.config.mjs` para custom presets, vars ad
 | `projectType`      | wizard (web / cli / library / mobile / other) |
 | `license`          | wizard (condicional: só se `isOpenSource`)    |
 | `date`             | `new Date().toISOString().slice(0,10)`        |
-| `year`             | derivado de `date`                            |
 
 ### Distribuição
 

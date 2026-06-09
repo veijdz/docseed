@@ -25,6 +25,7 @@ docseed init --force               # sobrescreve arquivos existentes
 docseed init --merge               # só cria arquivos que ainda não existem
 
 docseed add adr "título da decisão"   # adiciona o próximo ADR a um projeto existente
+docseed presets                       # lista os presets disponíveis
 ```
 
 ## Presets
@@ -49,11 +50,11 @@ Os documentos são gerados em **português (pt-BR)**. Se o projeto for open sour
 
 ## Customizando templates
 
-Para usar um template próprio no lugar do template do preset, crie o arquivo correspondente em `.docseed/templates/<nome>.hbs` na raiz do projeto. O `docseed` procura esse arquivo antes de cair para o template padrão, sem configuração necessária.
+Para usar um template próprio no lugar do template do preset, crie o arquivo correspondente em `.docseed/templates/<template-ref>.hbs` na raiz do projeto. O `<template-ref>` é o valor `template` do preset (ex.: `shared/README.md`, `mvp/PRD.md`), então o caminho do override espelha o layout do template embarcado: `.docseed/templates/shared/README.md.hbs`, `.docseed/templates/mvp/PRD.md.hbs`, e assim por diante. O `docseed` procura esse arquivo antes de cair para o template padrão, sem configuração necessária.
 
 ```bash
-mkdir -p .docseed/templates
-$EDITOR .docseed/templates/README.hbs   # sobrescreve só o README, mantém o resto do preset
+mkdir -p .docseed/templates/shared
+$EDITOR .docseed/templates/shared/README.md.hbs   # sobrescreve só o README, mantém o resto do preset
 ```
 
 ## Documentação
