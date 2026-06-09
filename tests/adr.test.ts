@@ -56,4 +56,55 @@ describe('runAddAdr', () => {
     const cwd = tmp()
     expect(() => runAddAdr('!!!', cwd, templatesRoot)).toThrow(/empty slug/)
   })
+
+  it('refuses to overwrite an already-existing ADR file', () => {
+    const cwd = tmp()
+    const adrDir = join(cwd, 'docs', 'adr')
+    mkdirSync(adrDir, { recursive: true })
+    // 9999-z.md is counted (next = 10000), while the 5-digit prefix of the
+    // pre-existing destination is not, so nextNumber lands right on it.
+    writeFileSync(join(adrDir, '9999-z.md'), '# ADR 9999: Z\n')
+    writeFileSync(join(adrDir, '10000-escolher-banco-de-dados.md'), '# pre-existing\n')
+
+    expect(() => runAddAdr('Escolher banco de dados', cwd, templatesRoot)).toThrow(
+      /ADR file already exists: docs\/adr\/10000-escolher-banco-de-dados\.md/,
+    )
+  })
+
+  it('inserts the new row inside the main table even with later | content', () => {
+    const cwd = tmp()
+    const adrDir = join(cwd, 'docs', 'adr')
+    mkdirSync(adrDir, { recursive: true })
+    writeFileSync(join(adrDir, '0001-foo.md'), '# ADR 0001: Foo\n')
+    writeFileSync(
+      join(adrDir, 'README.md'),
+      [
+        '# ADR',
+        '',
+        '| ADR | Decisão | Status |',
+        '| --- | --- | --- |',
+        '| [0001](0001-foo.md) | Foo | Accepted |',
+        '',
+        '**Status possíveis:** Proposed, Accepted.',
+        '',
+        '## Outra tabela',
+        '',
+        '| A | B |',
+        '| --- | --- |',
+        '| x | y |',
+        '',
+      ].join('\n'),
+    )
+
+    const result = runAddAdr('Segunda decisão', cwd, templatesRoot)
+    const index = readFileSync(join(cwd, result.indexPath), 'utf8')
+
+    // new row sits right after the main table's last row, before the footer
+    expect(index).toContain(
+      '| [0001](0001-foo.md) | Foo | Accepted |\n| [0002](0002-segunda-decisao.md) | Segunda decisão | Proposed |',
+    )
+    expect(index.indexOf('0002-segunda-decisao')).toBeLessThan(index.indexOf('Status possíveis'))
+    // the unrelated second table stays untouched
+    expect(index.indexOf('0002-segunda-decisao')).toBeLessThan(index.indexOf('| x | y |'))
+  })
 })
