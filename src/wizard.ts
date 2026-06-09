@@ -95,8 +95,8 @@ function resolveNonInteractive(flags: VarFlags, cwd: string): InputVars {
     projectType: flags.type ? resolveProjectType(flags.type) : 'other',
   }
 
-  if (vars.isOpenSource && flags.license) {
-    vars.license = resolveLicense(flags.license)
+  if (vars.isOpenSource) {
+    vars.license = flags.license ? resolveLicense(flags.license) : 'MIT'
   }
 
   assertRequiredVars(preset, vars)
