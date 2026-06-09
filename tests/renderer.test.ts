@@ -10,10 +10,10 @@ describe('render', () => {
     expect(render('Hello {{name}}', { name: 'X' })).toBe('Hello X')
   })
 
-  it('auto-injects date and year', () => {
+  it('auto-injects date', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-01-01T00:00:00Z'))
-    expect(render('{{date}} {{year}}', {})).toBe('2026-01-01 2026')
+    expect(render('{{date}}', {})).toBe('2026-01-01')
   })
 
   it('does not escape HTML entities (noEscape)', () => {

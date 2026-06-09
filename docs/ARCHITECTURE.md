@@ -59,7 +59,7 @@ Convenção universal, fácil de versionar.
 
 ### Wizard mínimo
 
-Wizard pergunta: `projectName`, `author`, `shortDescription`, `preset`, `isOpenSource`, `projectType`, `license` (só se open source). Total: 6-7 perguntas. Modo `--yes` usa defaults sensatos para todas.
+Wizard pergunta: `projectName`, `author`, `shortDescription`, `preset`, `isOpenSource`, `projectType`, `license` (só se open source). 6-7 perguntas é o máximo: passar a flag correspondente (`--name`, `--author`, `--preset`, etc.) pula a pergunta equivalente. Modo `--yes` usa defaults sensatos para todas.
 
 Dimensões adicionais (team size, compliance, has external users) ficam para Fase 2+ quando feedback real justificar.
 
