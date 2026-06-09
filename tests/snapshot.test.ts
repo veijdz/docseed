@@ -40,7 +40,7 @@ describe('preset snapshots', () => {
       })
 
       const filesByPath: Record<string, string> = {}
-      for (const p of [...summary.created].sort()) {
+      for (const p of [...summary.created].filter((x) => x !== 'LICENSE').sort()) {
         filesByPath[p] = readFileSync(join(cwd, 'docs', p), 'utf8')
       }
 
@@ -59,7 +59,7 @@ describe('preset snapshots', () => {
     })
 
     const filesByPath: Record<string, string> = {}
-    for (const p of [...summary.created].sort()) {
+    for (const p of [...summary.created].filter((x) => x !== 'LICENSE').sort()) {
       filesByPath[p] = readFileSync(join(cwd, 'docs', p), 'utf8')
     }
 

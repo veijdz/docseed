@@ -47,7 +47,7 @@ export async function runInit(
 }
 
 function reportSummary(summary: GenerateSummary): void {
-  const heading = summary.dryRun ? 'Seriam gerados (dry-run)' : 'Gerados em docs/'
+  const heading = summary.dryRun ? 'Seriam gerados (dry-run)' : 'Gerados'
   if (summary.created.length > 0) {
     note(summary.created.join('\n'), heading)
   }
@@ -82,7 +82,7 @@ export function registerInitCommand(program: Command): void {
       ]),
     )
     .option('--open-source', 'marca o projeto como open source')
-    .option('--license <id>', 'licença (MIT | Apache-2.0 | GPL-3.0 | proprietary)')
+    .option('--license <id>', 'licença (MIT | Apache-2.0 | GPL-3.0)')
     .action(async (options: InitOptions) => {
       try {
         const summary = await runInit(options, process.cwd())
