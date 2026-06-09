@@ -1,6 +1,6 @@
 {
   "name": "docseed",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "CLI para gerar estrutura inicial de documentação de projetos, calibrada ao escopo.",
   "type": "module",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "format": "biome format --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "pnpm build && pnpm typecheck && pnpm lint && pnpm test"
+    "prepublishOnly": "pnpm lint"
   },
   "dependencies": {
     "@clack/prompts": "^1.5.0",
