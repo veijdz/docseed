@@ -44,7 +44,7 @@
     "format": "biome format --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "pnpm build && pnpm test"
+    "prepublishOnly": "pnpm build && pnpm typecheck && pnpm lint && pnpm test"
   },
   "dependencies": {
     "@clack/prompts": "^1.5.0",
