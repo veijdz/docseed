@@ -2,10 +2,21 @@ import { existsSync, mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { runInit } from '../src/commands/init'
 import { toKebabCase } from '../src/utils/env'
-import { collectVars } from '../src/wizard'
+import { CancelledError, collectVars } from '../src/wizard'
+
+const CANCEL = Symbol('cancel')
+
+vi.mock('@clack/prompts', () => ({
+  intro: () => {},
+  cancel: () => {},
+  isCancel: (value: unknown) => value === CANCEL,
+  text: async () => CANCEL,
+  select: async () => CANCEL,
+  confirm: async () => CANCEL,
+}))
 
 const tmp = () => mkdtempSync(join(tmpdir(), 'docseed-'))
 const templatesRoot = fileURLToPath(new URL('../templates', import.meta.url))
@@ -36,7 +47,10 @@ describe('collectVars (non-interactive)', () => {
   })
 
   it('defaults preset to mvp and name to the directory basename', async () => {
-    const vars = await collectVars({ author: 'Jane' }, { yes: true, cwd: '/tmp/Cool Dir' })
+    const vars = await collectVars(
+      { author: 'Jane', description: 'desc' },
+      { yes: true, cwd: '/tmp/Cool Dir' },
+    )
     expect(vars.preset).toBe('mvp')
     expect(vars.projectName).toBe('cool-dir')
   })
@@ -44,12 +58,96 @@ describe('collectVars (non-interactive)', () => {
   it('rejects an unknown preset', async () => {
     await expect(
       collectVars({ name: 'x', preset: 'bogus' }, { yes: true, cwd: '/nowhere' }),
-    ).rejects.toThrow(/Unknown preset/)
+    ).rejects.toThrow(/Preset desconhecido/)
+  })
+
+  it('maps --description/--type/--open-source/--license flags', async () => {
+    const vars = await collectVars(
+      {
+        name: 'x',
+        author: 'Jane',
+        preset: 'mvp',
+        description: 'A small tool',
+        type: 'cli',
+        openSource: true,
+        license: 'MIT',
+      },
+      { yes: true, cwd: '/nowhere' },
+    )
+    expect(vars).toMatchObject({
+      shortDescription: 'A small tool',
+      projectType: 'cli',
+      isOpenSource: true,
+      license: 'MIT',
+    })
+  })
+
+  it('ignores --license when not open source', async () => {
+    const vars = await collectVars(
+      { name: 'x', author: 'Jane', preset: 'minimal', license: 'MIT' },
+      { yes: true, cwd: '/nowhere' },
+    )
+    expect(vars.isOpenSource).toBe(false)
+    expect(vars.license).toBeUndefined()
+  })
+
+  it('rejects an invalid --type', async () => {
+    await expect(
+      collectVars(
+        { name: 'x', author: 'Jane', preset: 'minimal', type: 'desktop' },
+        { yes: true, cwd: '/nowhere' },
+      ),
+    ).rejects.toThrow(/Invalid --type/)
+  })
+
+  it('rejects an invalid --license', async () => {
+    await expect(
+      collectVars(
+        { name: 'x', author: 'Jane', preset: 'minimal', openSource: true, license: 'BSD' },
+        { yes: true, cwd: '/nowhere' },
+      ),
+    ).rejects.toThrow(/Invalid --license/)
+  })
+
+  it('errors when a preset requiredVar is missing', async () => {
+    await expect(
+      collectVars({ name: 'x', author: 'Jane', preset: 'mvp' }, { yes: true, cwd: '/nowhere' }),
+    ).rejects.toThrow(/Missing required vars for preset 'mvp': shortDescription/)
+  })
+
+  it('falls back to basename when --name is empty/whitespace', async () => {
+    const vars = await collectVars(
+      { name: '   ', author: 'Jane', preset: 'minimal' },
+      { yes: true, cwd: '/tmp/Cool Dir' },
+    )
+    expect(vars.projectName).toBe('cool-dir')
+  })
+
+  it('falls back to git user when --author is empty/whitespace', async () => {
+    const vars = await collectVars(
+      { name: 'x', author: '  ', preset: 'minimal' },
+      { yes: true, cwd: '/nowhere' },
+    )
+    expect(typeof vars.author).toBe('string')
+  })
+})
+
+describe('collectVars (interactive cancellation)', () => {
+  it('throws CancelledError when a prompt is cancelled', async () => {
+    await expect(collectVars({}, { yes: false, cwd: '/nowhere' })).rejects.toBeInstanceOf(
+      CancelledError,
+    )
   })
 })
 
 describe('runInit (end-to-end)', () => {
-  const flags = { yes: true, name: 'Acme App', author: 'Jane', preset: 'mvp' }
+  const flags = {
+    yes: true,
+    name: 'Acme App',
+    author: 'Jane',
+    preset: 'mvp',
+    description: 'Uma app de exemplo',
+  }
 
   it('writes the 6 mvp docs with rendered, kebab-cased content', async () => {
     const cwd = tmp()
@@ -69,7 +167,7 @@ describe('runInit (end-to-end)', () => {
   it('strict aborts when docs already exist', async () => {
     const cwd = tmp()
     await runInit(flags, cwd, templatesRoot)
-    await expect(runInit(flags, cwd, templatesRoot)).rejects.toThrow(/Conflict/)
+    await expect(runInit(flags, cwd, templatesRoot)).rejects.toThrow(/Conflito/)
   })
 
   it('force overwrites and merge skips existing docs', async () => {
