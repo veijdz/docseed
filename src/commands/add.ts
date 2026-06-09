@@ -19,8 +19,9 @@ export function registerAddCommand(program: Command): void {
     .action((title: string) => {
       try {
         const result = runAddAdr(title, process.cwd())
-        const suffix = result.indexCreated ? ' (índice criado)' : ''
-        outro(`Criado ${result.path}${suffix}. Índice atualizado.`)
+        outro(
+          `Criado ${result.path}. ${result.indexCreated ? 'Índice criado.' : 'Índice atualizado.'}`,
+        )
       } catch (err) {
         log.error((err as Error).message)
         process.exitCode = 1

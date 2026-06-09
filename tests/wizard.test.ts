@@ -65,7 +65,7 @@ describe('collectVars (non-interactive)', () => {
   it('rejects an unknown preset', async () => {
     await expect(
       collectVars({ name: 'x', preset: 'bogus' }, { yes: true, cwd: '/nowhere' }),
-    ).rejects.toThrow(/Preset desconhecido/)
+    ).rejects.toThrow(/Unknown preset/)
   })
 
   it('maps --description/--type/--open-source/--license flags', async () => {
@@ -96,6 +96,15 @@ describe('collectVars (non-interactive)', () => {
     )
     expect(vars.isOpenSource).toBe(false)
     expect(vars.license).toBeUndefined()
+  })
+
+  it('defaults --license to MIT for open source without --license', async () => {
+    const vars = await collectVars(
+      { name: 'x', author: 'Jane', preset: 'minimal', openSource: true },
+      { yes: true, cwd: '/nowhere' },
+    )
+    expect(vars.isOpenSource).toBe(true)
+    expect(vars.license).toBe('MIT')
   })
 
   it('rejects an invalid --type', async () => {

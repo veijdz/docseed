@@ -22,23 +22,24 @@ Descreva aqui o que é o {{projectName}} e o problema que ele resolve.
 - [GOALS.md](GOALS.md): objetivos e métricas de sucesso
 - [TASKS.md](TASKS.md): backlog e acompanhamento
 {{/if}}
-
 {{#if (eq projectType "cli")}}
+
 ## Uso
 
 ```bash
 npx {{projectName}} --help
 ```
 {{/if}}
-{{#if (eq projectType "library")}}
+{{~#if (eq projectType "library")}}
+
 ## Instalação
 
 ```bash
 npm install {{projectName}}
 ```
 {{/if}}
+{{~#if isOpenSource}}
 
-{{#if isOpenSource}}
 ## Licença
 
 {{projectName}} é distribuído sob a licença {{license}}.
