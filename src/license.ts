@@ -1,4 +1,4 @@
-import spdxFull from 'spdx-license-list/full'
+import { LICENSE_TEXTS } from './licenses'
 
 /**
  * Maps the project's open-source license ids to SPDX ids.
@@ -27,14 +27,12 @@ export function renderLicense(
   const spdxId = SPDX_ID[license]
   if (!spdxId) return null
 
-  const entry = spdxFull[spdxId]
-  if (!entry) return null
+  const text = LICENSE_TEXTS[spdxId]
+  if (!text) return null
 
   if (spdxId === 'MIT') {
-    return entry.licenseText
-      .replace('<year>', vars.year)
-      .replace('<copyright holders>', vars.author)
+    return text.replace('<year>', () => vars.year).replace('<copyright holders>', () => vars.author)
   }
 
-  return entry.licenseText
+  return text
 }
