@@ -81,6 +81,9 @@ export async function collectVars(flags: VarFlags, ctx: CollectContext): Promise
 function resolveNonInteractive(flags: VarFlags, cwd: string): InputVars {
   const projectName = requireProjectName(flags.name?.trim() || basename(cwd))
   const preset = flags.preset ?? 'mvp'
+  // Early validation of --preset. getPreset is pure/idempotent, so the later
+  // call in init.ts is intentionally redundant (dedup would ripple into the
+  // collectVars signature for negligible gain).
   getPreset(preset)
 
   const vars: InputVars = {
