@@ -32,7 +32,7 @@ function nextNumber(adrDir: string): string {
   let max = 0
   if (existsSync(adrDir)) {
     for (const name of readdirSync(adrDir)) {
-      const match = /^(\d{4})-.+\.md$/.exec(name)
+      const match = /^(\d{4})-.+\.md$/i.exec(name)
       if (match) {
         const n = Number.parseInt(match[1] ?? '0', 10)
         if (n > max) max = n
@@ -42,15 +42,31 @@ function nextNumber(adrDir: string): string {
   return String(max + 1).padStart(4, '0')
 }
 
-/** Insere `row` logo após a última linha de tabela (que começa com `|`). */
+/**
+ * Insere `row` no fim do bloco contíguo da tabela principal. Ancora na linha
+ * separadora do cabeçalho e insere após a última linha consecutiva que começa
+ * com `|`; sem separador, faz append no fim do arquivo.
+ */
 function insertRow(content: string, row: string): string {
   const lines = content.split('\n')
-  let last = -1
+  let separator = -1
   for (let i = 0; i < lines.length; i++) {
-    if (lines[i]?.trimStart().startsWith('|')) last = i
+    const line = lines[i] ?? ''
+    // A real table header separator carries both a pipe and a run of dashes,
+    // e.g. `| --- |`. Requiring both avoids matching `---` horizontal rules,
+    // YAML frontmatter delimiters, or `----` inside code fences.
+    if (line.includes('|') && /-{3,}/.test(line)) {
+      separator = i
+      break
+    }
   }
-  if (last === -1) {
+  if (separator === -1) {
     return `${content.trimEnd()}\n\n${row}\n`
+  }
+  let last = separator
+  for (let i = separator + 1; i < lines.length; i++) {
+    if (lines[i]?.trimStart().startsWith('|')) last = i
+    else break
   }
   lines.splice(last + 1, 0, row)
   return lines.join('\n')
@@ -77,7 +93,11 @@ export function addAdr(title: string, opts: AddAdrOptions = {}): AddAdrResult {
   const bodyTpl = loadTemplate('shared/adr.md', { cwd, bundledRoot })
   const body = render(bodyTpl.content, { number, title: trimmed, slug, status: STATUS })
   mkdirSync(adrDir, { recursive: true })
-  writeFileSync(resolve(adrDir, fileName), body, 'utf8')
+  const destination = resolve(adrDir, fileName)
+  if (existsSync(destination)) {
+    throw new Error(`ADR file already exists: docs/adr/${fileName}`)
+  }
+  writeFileSync(destination, body, 'utf8')
 
   const indexAbs = resolve(adrDir, 'README.md')
   let indexCreated = false
