@@ -9,8 +9,8 @@ import { writeFiles } from '../src/engine/writer'
 const tmp = () => mkdtempSync(join(tmpdir(), 'docseed-conflict-'))
 
 const planned: PlannedFile[] = [
-  { output: 'README.md', absPath: '/abs/docs/README.md' },
-  { output: 'ARCHITECTURE.md', absPath: '/abs/docs/ARCHITECTURE.md' },
+  { output: 'README.md', absPath: '/abs/docs/README.md', content: '# README' },
+  { output: 'ARCHITECTURE.md', absPath: '/abs/docs/ARCHITECTURE.md', content: '# ARCHITECTURE' },
 ]
 
 const existing = new Set(['/abs/docs/README.md'])

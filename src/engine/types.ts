@@ -99,6 +99,8 @@ export interface PlannedFile {
   output: string
   /** Caminho absoluto onde seria escrito. */
   absPath: string
+  /** Conteúdo renderizado a escrever. */
+  content: string
 }
 
 export interface ConflictDecision {
