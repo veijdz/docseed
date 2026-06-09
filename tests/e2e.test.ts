@@ -3,7 +3,7 @@ import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { beforeAll, describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { getPreset } from '../src/presets/loader'
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url))
@@ -16,10 +16,6 @@ const initMvp = (cwd: string, extra = '') =>
   )
 
 describe('docseed init (real binary)', () => {
-  beforeAll(() => {
-    execSync('pnpm -s build', { cwd: repoRoot, stdio: 'ignore' })
-  }, 120000)
-
   it('writes the mvp docs with no orphan mustaches', () => {
     const tmpDir = mkdtempSync(join(tmpdir(), 'docseed-e2e-'))
     initMvp(tmpDir)
@@ -50,13 +46,21 @@ describe('docseed init (real binary)', () => {
       expect(readFileSync(file, 'utf8')).not.toContain('{{')
     }
   }, 60000)
+
+  it('writes a LICENSE at the project root when open source with --license', () => {
+    const tmpDir = mkdtempSync(join(tmpdir(), 'docseed-e2e-license-'))
+    initMvp(tmpDir, '--open-source --license MIT')
+
+    const license = join(tmpDir, 'LICENSE')
+    expect(existsSync(license)).toBe(true)
+
+    const contents = readFileSync(license, 'utf8')
+    expect(contents).toContain('Copyright (c) ')
+    expect(contents).toContain(String(new Date().getFullYear()))
+  }, 60000)
 })
 
 describe('docseed init conflict strategies (real binary)', () => {
-  beforeAll(() => {
-    execSync('pnpm -s build', { cwd: repoRoot, stdio: 'ignore' })
-  }, 120000)
-
   it('strict aborts with a non-zero exit and leaves existing docs untouched', () => {
     const tmpDir = mkdtempSync(join(tmpdir(), 'docseed-e2e-strict-'))
     initMvp(tmpDir)
