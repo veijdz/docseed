@@ -54,7 +54,7 @@ const registry: Record<string, Preset> = {
 export function getPreset(id: string): Preset {
   const preset = registry[id]
   if (!preset) {
-    throw new Error(`Preset desconhecido: ${id}. Disponíveis: ${Object.keys(registry).join(', ')}`)
+    throw new Error(`Unknown preset: ${id}. Available: ${Object.keys(registry).join(', ')}`)
   }
   return preset
 }
