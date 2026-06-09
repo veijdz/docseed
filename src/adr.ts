@@ -52,7 +52,10 @@ function insertRow(content: string, row: string): string {
   let separator = -1
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i] ?? ''
-    if (/^\s*\|?\s*-{3,}/.test(line) || line.includes('| --- |')) {
+    // A real table header separator carries both a pipe and a run of dashes,
+    // e.g. `| --- |`. Requiring both avoids matching `---` horizontal rules,
+    // YAML frontmatter delimiters, or `----` inside code fences.
+    if (line.includes('|') && /-{3,}/.test(line)) {
       separator = i
       break
     }
