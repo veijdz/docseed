@@ -12,15 +12,13 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
   const cwd = opts.cwd ?? process.cwd()
   const bundledRoot = opts.bundledRoot ?? fileURLToPath(new URL('../templates', import.meta.url))
 
-  const contentByPath = new Map<string, string>()
   const planned: PlannedFile[] = []
 
   for (const doc of preset.docs) {
     const loaded = loadTemplate(doc.template, { cwd, bundledRoot })
     const content = render(loaded.content, vars)
     const absPath = resolve(cwd, 'docs', doc.path)
-    contentByPath.set(absPath, content)
-    planned.push({ output: doc.path, absPath })
+    planned.push({ output: doc.path, absPath, content })
   }
 
   if (vars.isOpenSource && vars.license) {
@@ -28,8 +26,7 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
     const licenseText = renderLicense(vars.license, { author: vars.author, year })
     if (licenseText !== null) {
       const absPath = resolve(cwd, 'LICENSE')
-      contentByPath.set(absPath, licenseText)
-      planned.push({ output: 'LICENSE', absPath })
+      planned.push({ output: 'LICENSE', absPath, content: licenseText })
     }
   }
 
@@ -44,7 +41,7 @@ export function generate(preset: Preset, vars: InputVars, opts: GenerateOptions)
 
   const filesToWrite = decision.toWrite.map((p) => ({
     absPath: p.absPath,
-    content: contentByPath.get(p.absPath) ?? '',
+    content: p.content,
   }))
   writeFiles(filesToWrite, opts.dryRun)
 
