@@ -21,7 +21,7 @@
     "adr"
   ],
   "bin": {
-    "docseed": "./dist/index.mjs"
+    "docseed": "dist/index.mjs"
   },
   "files": [
     "dist",
