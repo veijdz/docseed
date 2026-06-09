@@ -91,7 +91,7 @@ export function addAdr(title: string, opts: AddAdrOptions = {}): AddAdrResult {
   const fileName = `${number}-${slug}.md`
 
   const bodyTpl = loadTemplate('shared/adr.md', { cwd, bundledRoot })
-  const body = render(bodyTpl.content, { number, title: trimmed, slug, status: STATUS })
+  const body = render(bodyTpl.content, { number, title: trimmed, status: STATUS })
   mkdirSync(adrDir, { recursive: true })
   const destination = resolve(adrDir, fileName)
   if (existsSync(destination)) {

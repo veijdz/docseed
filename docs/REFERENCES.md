@@ -257,7 +257,7 @@ Modelos de tomada de decisão e responsabilidade. Úteis em projetos com muitos 
 | Risk Register               | -           | -             | -                   | ✅              |
 | OKRs                        | -           | -             | -                   | ✅              |
 
-> **Sobre "linkados" no preset `mvp`:** significa que o `ARCHITECTURE.md` gerado inclui uma seção _Decisões_ com links para ADRs, o `docseed` **não** cria uma pasta `adr/` nem gera arquivos de ADR no `mvp`. A pasta `adr/` (marcada **✅ pasta**) é exclusiva de `saas`/`enterprise`. Isso mantém a contagem de 6 documentos do preset `mvp`.
+> **Sobre "linkados" no preset `mvp`:** significa que o `ARCHITECTURE.md` gerado inclui uma seção _Decisões registradas (ADRs)_ que orienta a registrar cada decisão via `docseed add adr` (sem links pré-existentes). O `docseed` **não** cria uma pasta `adr/` nem gera arquivos de ADR no `mvp`. A pasta `adr/` (marcada **✅ pasta**) é exclusiva de `saas`/`enterprise`. Isso mantém a contagem de 6 documentos do preset `mvp`.
 
 ---
 

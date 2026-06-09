@@ -1,6 +1,10 @@
 import { execSync } from 'node:child_process'
 
-/** Normalize an arbitrary project name to kebab-case (e.g. 'My App' -> 'my-app'). */
+/**
+ * Normalize an arbitrary project name to kebab-case (e.g. 'My App' -> 'my-app').
+ * Splits only lower/digit-to-upper boundaries, so acronym runs stay joined
+ * (e.g. 'HTTPServer' -> 'httpserver'), which is acceptable for slugs.
+ */
 export function toKebabCase(input: string): string {
   return input
     .trim()
