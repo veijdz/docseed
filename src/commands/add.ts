@@ -14,7 +14,7 @@ export function registerAddCommand(program: Command): void {
 
   add
     .command('adr')
-    .description('Cria o próximo ADR sequencial em docs/adr/ e atualiza o índice.')
+    .description('Cria o próximo ADR sequencial em docs/adr/ e cria ou atualiza o índice.')
     .argument('<title>', 'título da decisão')
     .action((title: string) => {
       try {
